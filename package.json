@@ -1,0 +1,27 @@
+{
+  "name": "wepy_templates",
+  "version": "0.0.1",
+  "description": "wepy templates collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wepyjs/wepy_templates.git"
+  },
+  "keywords": [
+    "wepy"
+  ],
+  "author": "Gcaufy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wepyjs/wepy_templates/issues"
+  },
+  "homepage": "https://github.com/wepyjs/wepy_templates#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "gulp-zip": "^4.0.0"
+  }
+}

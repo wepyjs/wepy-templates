@@ -1,27 +1,27 @@
 <style lang="less">
-  .mylist:odd {
-    color: red;
-  }
-  .mylist:even {
-    color: green;
-  }
+    .mylist:odd {
+        color: red;
+    }
+    .mylist:even {
+        color: green;
+    }
 </style>
 <template>
-  <view class="list">
-  <view>
-    <button @tap="add" size="mini">添加列表</button>
-  </view>
-    <block wx:for-items="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-      <view @tap="tap" class="mylist">
-        <text>{{item.id}}</text>: {{item.title}}
-      </view>
-    </block>
-  </view>
+    <view class="wepy-list">
+        <view>
+            <button @tap="add" size="mini">添加列表another</button>
+        </view>
+        <block wx:for-items="\{{list}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <view @tap="tap" class="mylist">
+                <text>\{{item.id}}</text>: \{{item.title}}
+            </view>
+        </block>
+    </view>
 </template>
 <script>
   import wepy from 'wepy'
 
-  export default class List extends wepy.component {
+  export default class ListAnother extends wepy.component {
     data = {
       list: [
         {

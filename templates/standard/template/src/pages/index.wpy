@@ -18,18 +18,23 @@
 <template>
   <view class="container">
     <view class="userinfo" @tap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
-      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+      <image class="userinfo-avatar" src="\{{ userInfo.avatarUrl }}" background-size="cover"/>
+      <view class="userinfo-nickname">\{{ userInfo.nickName }}</view>
     </view>
 
     <panel>
       <view class="title" slot="title">测试数据绑定</view>
 
-      <text class="info">{{normalTitle}}</text>
-      <text class="info">{{setTimeoutTitle}}</text>
-      <text class="info">{{mixin}}</text>
-      <text class="info">{{mynum}}</text>
-      <text class="info">{{now}}</text>
+      <text class="info">\{{normalTitle}}</text>
+      <text class="info">\{{setTimeoutTitle}}</text>
+      <text class="info">\{{mixin}}</text>
+      <text class="info">\{{mynum}}</text>
+      <text class="info">\{{now}}</text>
+      {{#redux}}
+      <text class="info">\{{num}}</text>
+      <text class="info">\{{asyncNum}}</text>
+      <text class="info">\{{sumNum}}</text>
+      {{/redux}}
       <button @tap="plus('a')" size="mini">  +  </button>
     </panel>
 
@@ -42,7 +47,7 @@
 
     <panel>
       <view class="title" slot="title">测试并发网络请求</view>
-      <view>返回结果: <text>{{netrst}}</text></view>
+      <view>返回结果: <text>\{{netrst}}</text></view>
       <button @tap="request" size="mini"> 点我发起10个请求 </button>
     </panel>
 
@@ -79,6 +84,9 @@
 
 <script>
   import wepy from 'wepy'
+  {{#redux}}
+  import { connect } from 'wepy-redux'
+  {{/redux}}
   import Panel from '@/components/panel' // alias example
   import Counter from 'counter' // alias example
   import List from '../components/list' // aliasFields example
@@ -88,6 +96,20 @@
   import testMixin from '../mixins/test'
 
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+
+  {{#redux}}
+  @connect({
+    num (state) {
+      return state.counter.num
+    },
+    asyncNum (state) {
+      return state.counter.asyncNum
+    },
+    sumNum (state) {
+      return state.counter.num + state.counter.asyncNum
+    }
+  })
+  {{/redux}}
 
   export default class Index extends wepy.page {
     config = {

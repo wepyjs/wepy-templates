@@ -17,7 +17,7 @@ gulp.task('build', function () {
   gutil.log(`${templates.length} templates found`);
   templates.forEach(template => {
     gutil.log(`compress template [${template}]`);
-    gulp.src([`templates/${template}/**`, `!templates/${template}/{node_modules,node_modules/**,dist,dist/**}`])
+    gulp.src([`templates/${template}/**`, `!templates/${template}/{node_modules,node_modules/**,dist,dist/**}`], { dot: true })
       .pipe(zip(`${template}.zip`))
       .pipe(gulp.dest('zips'));
   })

@@ -1,4 +1,7 @@
-{
-  "empty": "空模板",
-  "standard": "模认模板，开启了promise、Async Function等"
-}
+[{
+  "name": "empty",
+  "description": "空模板"
+}, {
+  "name": "standard",
+  "description": "模认模板，开启了promise、Async Function等"
+}]

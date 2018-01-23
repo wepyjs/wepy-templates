@@ -18,6 +18,10 @@
   "bugs": {
     "url": "https://github.com/wepyjs/wepy_templates/issues"
   },
+  "templatesDescription": {
+    "empty": "空模板",
+    "standard": "模认模板，开启了promise、Async Function等"
+  },
   "homepage": "https://github.com/wepyjs/wepy_templates#readme",
   "devDependencies": {
     "gulp": "^3.9.1",

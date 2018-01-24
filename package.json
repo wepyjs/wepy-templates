@@ -4,6 +4,7 @@
   "description": "wepy templates collection",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf zips/* && gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

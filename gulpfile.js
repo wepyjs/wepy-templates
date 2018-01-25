@@ -23,7 +23,7 @@ const buildReadMe = () => {
   newDoc = md.substr(0, start) + '\n\n', 
   table = '| Name | Description |\n| --- | --- |\n';
 
-  json.forEach(item => {
+  json.official.forEach(item => {
     table += `| [${item.name}](https://github.com/wepyjs/wepy_templates/tree/master/templates/${item.name}) | ${item.description} |\n`;
   });
 

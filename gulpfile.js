@@ -9,24 +9,10 @@ const getTemplates = () => {
   return dirData;
 };
 
-/**
- * Write readme based on templates.json
- */
-const buildReadMe = () => {
-  let json = fs.readFileSync('./templates.json');
-  json = JSON.parse(json);
-
-  let md = fs.readFileSync('./README.md', 'utf-8');
-  let flag = '## Template List';
-  let start = md.indexOf(flag) + flag.length, l = md.length, 
-  endding = '';
-  newDoc = md.substr(0, start) + '\n\n', 
-  table = '| Name | Description |\n| --- | --- |\n';
-
-  json.official.forEach(item => {
-    table += `| [${item.name}](https://github.com/wepyjs/wepy_templates/tree/master/templates/${item.name}) | ${item.description} |\n`;
-  });
-
+const updateTable = (md, flag, table) => {
+  let newDoc = '';
+  let start = md.indexOf(flag) + flag.length, l = md.length, endding = '';
+  newDoc = md.substr(0, start) + '\n\n';
   let i = start - 1;
   // Get the reset part
   while (++i < l) {
@@ -37,7 +23,32 @@ const buildReadMe = () => {
     }
     start++;
   }
-  newDoc += table + endding;
+  newDoc += table + '\n' + endding;
+  return newDoc;
+};
+
+/**
+ * Write readme based on templates.json
+ */
+const buildReadMe = () => {
+  let json = fs.readFileSync('./templates.json');
+  json = JSON.parse(json);
+
+  let md = fs.readFileSync('./README.md', 'utf-8');
+  let table = '| Name | Description |\n| --- | --- |\n';
+
+  json.official.forEach(item => {
+    table += `| [${item.name}](https://github.com/wepyjs/wepy_templates/tree/master/templates/${item.name}) | ${item.description} |\n`;
+  });
+
+  let githubTable = '| Repository | Stars | Description | Last Updated |\n| --- | --- | --- | --- |\n';
+
+  json.github.forEach(item => {
+    githubTable += `| [${item.repo}](https://github.com/${item.repo}) | ${item.star || '-'} | ${item.description || '-'} | ${item.last_update || '-'} |\n`;
+  });
+
+  let newDoc = updateTable(md, '## Template List', table);
+  newDoc = updateTable(newDoc, '## Github Project', githubTable);
 
   fs.writeFileSync('./README.md', newDoc);
 };

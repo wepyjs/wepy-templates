@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf zips/* && gulp build",
+    "build:meta": "node build/meta.js",
+    "build:readme": "node build/readme.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -5,13 +5,13 @@ const path = require('path');
 const github3 = require('github3');
 const { execSync } = require('child_process');
 
-const arguments = process.argv.splice(2);
+const args = process.argv.splice(2);
 
-const isCron = arguments[0] === '--cron';
+const isCron = args[0] === '--cron';
 let add = null;
 
-if (arguments[0] === 'add' && arguments[1].indexOf('/') > 0) {
-  add = arguments[1];
+if (args[0] === 'add' && args[1].indexOf('/') > 0) {
+  add = args[1];
 }
 
 const JSON_PATH = path.join(__dirname, '..', 'meta.json');

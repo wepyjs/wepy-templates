@@ -23,6 +23,12 @@
       "star": 118,
       "description": "WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上",
       "last_update": "2018-01-28T02:53:00Z"
+    },
+    {
+      "repo": "brucx/wepy-zanui-demo",
+      "star": 50,
+      "description": "基于zanui-weapp移植的一套wepy界面框架",
+      "last_update": "2018-01-24T06:34:32Z"
     }
   ]
 }

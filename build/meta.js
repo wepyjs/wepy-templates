@@ -86,7 +86,9 @@ const buildMeta = () => {
     fs.writeFileSync(JSON_PATH, JSON.stringify(json, null, 2));
 
     let readmeScript = path.join(__dirname, 'readme.js');
-    execSync(`node ${readmeScript}`, {stdio: [0, 1, 2]});
+
+    require('./readme');
+    // execSync(`node ${readmeScript}`, {stdio: [0, 1, 2]});
 
     if (isCron) {
       if (!Git.diff()) {

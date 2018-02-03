@@ -76,7 +76,7 @@ const buildMeta = () => {
     data.forEach((item, i) => {
       json.github[i].star = item.stargazers_count;
       json.github[i].description = item.description;
-      json.github[i].last_update = item.updated_at;
+      json.github[i].last_update = item.pushed_at;
     });
 
     // Sort by star number

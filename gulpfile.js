@@ -31,7 +31,7 @@ const updateTable = (md, flag, table) => {
  * Write readme based on templates.json
  */
 const buildReadMe = () => {
-  let json = fs.readFileSync('./templates.json');
+   json = fs.readFileSync('./meta.json');
   json = JSON.parse(json);
 
   let md = fs.readFileSync('./README.md', 'utf-8');

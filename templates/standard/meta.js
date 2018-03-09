@@ -9,6 +9,12 @@ module.exports = {
     }
   },
   "prompts": {
+    "appid": {
+      "type": "string",
+      "required": true,
+      "message": "Project appid",
+      "default": "touristappid"
+    },
     "name": {
       "type": "string",
       "required": true,

@@ -6,17 +6,17 @@ module.exports = {
   cliLogs: true,
   compilers: {
     less: {
-      'compress': true
+      compress: true
     },
     /*sass: {
       outputStyle: 'compressed'
     },*/
     babel: {
-      'sourceMap': true,
-      'presets': [
+      sourceMap: true,
+      presets: [
         'env'
       ],
-      'plugins': [
+      plugins: [
         'babel-plugin-transform-class-properties',
         'transform-export-extensions',
         'syntax-export-extensions'
@@ -53,10 +53,10 @@ if (prod) {
     imagemin: {
       filter: /\.(jpg|png|jpeg)$/,
       config: {
-        'jpg': {
+        jpg: {
           quality: 80
         },
-        'png': {
+        png: {
           quality: 80
         }
       }

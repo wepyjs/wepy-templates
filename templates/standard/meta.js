@@ -4,21 +4,21 @@ module.exports = {
       if (v1 || v2) {
         return options.fn(this);
       }
-      
+
       return options.inverse(this);
     }
   },
   "prompts": {
-    "appid": {
-      "type": "string",
-      "required": true,
-      "message": "Project appid",
-      "default": "touristappid"
-    },
-    "name": {
+   "name": {
       "type": "string",
       "required": true,
       "message": "Project name"
+    },
+    "appid": {
+      "type": "string",
+      "required": true,
+      "message": "AppId",
+      "default": "touristappid"
     },
     "description": {
       "type": "string",

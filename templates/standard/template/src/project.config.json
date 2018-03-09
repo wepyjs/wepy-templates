@@ -3,9 +3,8 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true
+		"postcss": false,
+		"minified": false
 	},
 	"compileType": "miniprogram",
 	"appid": "{{appid}}",

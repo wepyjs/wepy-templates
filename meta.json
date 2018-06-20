@@ -16,11 +16,11 @@
       "star": 329,
       "wepy_v": "",
       "wepy_cli_v": "",
-      "last_update": "2018-04-03T02:29:46Z"
+      "last_update": "2018-06-20T09:18:11Z"
     },
     {
       "repo": "wepyjs/wepy-weui-demo",
-      "star": 236,
+      "star": 237,
       "description": "WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上",
       "last_update": "2018-01-06T14:02:02Z"
     },

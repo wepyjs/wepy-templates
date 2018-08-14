@@ -13,20 +13,20 @@
     {
       "repo": "wepyjs/wepy-wechat-demo",
       "description": "wepy仿微信聊天界面",
-      "star": 361,
+      "star": 362,
       "wepy_v": "",
       "wepy_cli_v": "",
       "last_update": "2018-08-10T08:53:52Z"
     },
     {
       "repo": "wepyjs/wepy-weui-demo",
-      "star": 267,
+      "star": 268,
       "description": "WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上",
       "last_update": "2018-01-06T14:02:02Z"
     },
     {
       "repo": "brucx/wepy-zanui-demo",
-      "star": 179,
+      "star": 180,
       "description": "基于zanui-weapp移植的一套wepy界面框架",
       "last_update": "2018-05-10T08:09:50Z"
     }

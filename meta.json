@@ -13,7 +13,7 @@
     {
       "repo": "wepyjs/wepy-wechat-demo",
       "description": "wepy仿微信聊天界面",
-      "star": 370,
+      "star": 372,
       "wepy_v": "",
       "wepy_cli_v": "",
       "last_update": "2018-08-10T08:53:52Z"
@@ -26,7 +26,7 @@
     },
     {
       "repo": "brucx/wepy-zanui-demo",
-      "star": 185,
+      "star": 186,
       "description": "基于zanui-weapp移植的一套wepy界面框架",
       "last_update": "2018-05-10T08:09:50Z"
     }

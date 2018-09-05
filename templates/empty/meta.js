@@ -30,10 +30,11 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
+    /*
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
-    }
+    }*/
   },
   "filters": {
     ".eslintignore": "lint",

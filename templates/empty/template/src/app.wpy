@@ -4,8 +4,14 @@
 <script>
 import wepy from 'wepy'
 
-export default class extends wepy.app {
-  config = {
+wepy.app({
+  onLaunch() {
+    console.log('on launch')
+  }
+}
+</script>
+<config>
+{
     pages: [
       'pages/index'
     ],
@@ -16,9 +22,4 @@ export default class extends wepy.app {
       navigationBarTextStyle: 'black'
     }
   }
-
-  onLaunch() {
-    console.log('on launch')
-  }
-}
-</script>
+</config>

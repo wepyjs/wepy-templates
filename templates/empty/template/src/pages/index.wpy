@@ -1,20 +1,22 @@
 <style lang="less">
 </style>
 <template>
-  <view class="container">
+  <div class="container">
     Hello world
-  </view>
+  </div>
 </template>
 
 <script>
   import wepy from 'wepy'
 
-  export default class Index extends wepy.page {
-    config = {
-      navigationBarTitleText: 'test'
-    }
+  wepy.page({
     onLoad() {
       console.log('onLoad')
     }
-  }
+  })
 </script>
+<config>
+{
+    navigationBarTitleText: 'test'
+}
+</config>

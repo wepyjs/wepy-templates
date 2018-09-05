@@ -7,13 +7,13 @@
 </template>
 
 <script>
-  import wepy from 'wepy'
+  import wepy from 'wepy';
 
   wepy.page({
     onLoad() {
       console.log('onLoad')
     }
-  })
+  });
 </script>
 <config>
 {

@@ -8,7 +8,7 @@ wepy.app({
   onLaunch() {
     console.log('on launch')
   }
-}
+});
 </script>
 <config>
 {

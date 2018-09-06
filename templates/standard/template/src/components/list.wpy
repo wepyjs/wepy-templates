@@ -7,38 +7,38 @@
   }
 </style>
 <template>
-  <view class="list">
-  <view>
-    <button @tap="add" size="mini">添加列表</button>
-  </view>
+  <div class="list">
+    <div>
+      <button @tap="add" size="mini">添加列表</button>
+    </div>
     <block wx:for-items="\{{list}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-      <view @tap="tap" class="mylist">
-        <text>\{{item.id}}</text>: \{{item.title}}
-      </view>
+      <div @tap="tap" class="mylist">
+        <span>\{{item.id}}</span>: \{{item.title}}
+      </div>
     </block>
-  </view>
+  </div>
 </template>
 <script>
   import wepy from 'wepy'
 
-  export default class List extends wepy.component {
-    data = {
+  wepy.component({
+    data: {
       list: [
         {
           id: '0',
           title: 'loading'
         }
       ]
-    }
+    },
 
-    events = {
+    events: {
       'index-broadcast': (...args) => {
         let $event = args[args.length - 1]
         console.log(`${this.$name} receive ${$event.name} from ${$event.source.name}`)
       }
-    }
+    },
 
-    methods = {
+    methods: {
       tap () {
         // this.num = this.num + 1
         console.log(this.$name + ' tap')
@@ -51,5 +51,5 @@
 
     onLoad () {
     }
-  }
+  });
 </script>

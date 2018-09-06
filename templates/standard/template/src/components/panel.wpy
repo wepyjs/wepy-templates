@@ -27,17 +27,11 @@
   }
 </style>
 <template>
-  <view class="panel">
+  <div class="panel">
     <slot name="title">
       Title
     </slot>
     <slot>
     </slot>
-  </view>
+  </div>
 </template>
-<script>
-  import wepy from 'wepy'
-
-  export default class Panel extends wepy.component {
-  }
-</script>

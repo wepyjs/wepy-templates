@@ -42,8 +42,7 @@ module.exports = {
       ]
     }
   },
-  plugins: {
-  },
+  plugins: [],
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']
   }

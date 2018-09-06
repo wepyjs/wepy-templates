@@ -30,6 +30,7 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
+    /*
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
@@ -41,7 +42,7 @@ module.exports = {
     "web": {
       "type": "confirm",
       "message": "Use web transform feature in your project?"
-    }
+    }*/
   },
   "filters": {
     ".eslintignore": "lint",

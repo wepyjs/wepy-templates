@@ -260,7 +260,7 @@
       panel: '~@/components/panel',
       counter: '~counter',
       list: '../components/list',
-      group: '../components/gorup',
+      group: '../components/group',
     }
 }
 </config>

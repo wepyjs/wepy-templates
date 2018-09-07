@@ -33,7 +33,7 @@ input {
 
       <text class="info" @tap="normalTitle = '已被修改'">{{normalTitle}}</text>
       <text class="info">{{setTimeoutTitle}}</text>
-      <text class="info">{{mixin}}</text>
+      <text class="info" @tap="mixintap">{{mixin}}</text>
       <text class="info">{{testcomputed}}</text>
       {{#redux}}
       <text class="info">{{num}}</text>

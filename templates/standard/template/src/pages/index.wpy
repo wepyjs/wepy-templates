@@ -101,7 +101,7 @@ input {
 </template>
 
 <script>
-  import wepy from 'wepy'
+  import wepy from '@wepy/core'
   {{#redux}}
   import { connect } from 'wepy-redux'
   {{/redux}}
@@ -239,12 +239,6 @@ input {
       }
     },
 
-    events: {
-      'index-emit': (...args) => {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
-    },
 
     created () {
       let self = this
@@ -266,7 +260,7 @@ input {
 <config>
 {
     navigationBarTitleText: 'WePY 2.0 Feature Demo',
-    usingComponents: e
+    usingComponents: {
       panel: '~@/components/panel',
       counter: '~counter',
       list: '../components/list',

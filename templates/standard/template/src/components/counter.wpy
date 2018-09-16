@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-  import wepy from 'wepy'
+  import wepy from '@wepy/core'
   {{#redux}}
   import { connect } from 'wepy-redux'
   import { INCREMENT, DECREMENT } from '../store/types/counter'

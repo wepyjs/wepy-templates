@@ -1,10 +1,13 @@
 <style lang="less">
-input {
-  border: 1rpx solid #ccc;
-  display: inline-block;
-  width: 200rpx;
-  border-radius: 5rpx;
-}
+  input {
+    border: 1rpx solid #ccc;
+    display: inline-block;
+    width: 200rpx;
+    border-radius: 5rpx;
+  }
+  .info {
+    padding-right: 10rpx;
+  }
   .userinfo {
     display: flex;
     flex-direction: column;
@@ -204,8 +207,8 @@ input {
           console.log('toast done')
         });
       },
-      tap () {
-        console.log('do noting from ' + this.$name)
+      mixintap () {
+        console.log('do noting from ' + this.$is);
       },
       communicate () {
         let counters = this.$children.filter((com) => com.$is === 'components/counter');
@@ -221,7 +224,7 @@ input {
         let i = 10
         let map = ['MA==', 'MQo=', 'Mg==', 'Mw==', 'NA==', 'NQ==', 'Ng==', 'Nw==', 'OA==', 'OQ==']
         while (i--) {
-          wepy.request({
+          wx.request({
             url: 'https://www.madcoder.cn/tests/sleep.php?time=1&t=css&c=' + map[i] + '&i=' + i,
             success: function (d) {
               if (d.statusCode !== 200) {

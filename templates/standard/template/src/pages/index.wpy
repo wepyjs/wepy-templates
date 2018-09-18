@@ -27,21 +27,21 @@
 <template>
   <div class="container">
     <div class="userinfo" @tap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
-      <div class="userinfo-nickname">{{ userInfo.nickName }}</div>
+      <image class="userinfo-avatar" src="\{{ userInfo.avatarUrl }}" background-size="cover"/>
+      <div class="userinfo-nickname">\{{ userInfo.nickName }}</div>
     </div>
 
     <panel>
       <div class="title" slot="title">测试数据绑定</div>
 
-      <text class="info" @tap="normalTitle = '已被修改'">{{normalTitle}}</text>
-      <text class="info">{{setTimeoutTitle}}</text>
-      <text class="info" @tap="mixintap">{{mixin}}</text>
-      <text class="info">{{testcomputed}}</text>
+      <text class="info" @tap="normalTitle = '已被修改'">\{{normalTitle}}</text>
+      <text class="info">\{{setTimeoutTitle}}</text>
+      <text class="info" @tap="mixintap">\{{mixin}}</text>
+      <text class="info">\{{testcomputed}}</text>
       {{#redux}}
-      <text class="info">{{num}}</text>
-      <text class="info">{{asyncNum}}</text>
-      <text class="info">{{sumNum}}</text>
+      <text class="info">\{{num}}</text>
+      <text class="info">\{{asyncNum}}</text>
+      <text class="info">\{{sumNum}}</text>
       {{/redux}}
     </panel>
 
@@ -54,7 +54,7 @@
 
     <panel>
       <div class="title" slot="title">测试并发网络请求</div>
-      <div>返回结果: <text>{{netrst}}</text></div>
+      <div>返回结果: <text>\{{netrst}}</text></div>
       <button @tap="request" size="mini"> 点我发起10个请求 </button>
     </panel>
 
@@ -62,7 +62,7 @@
        <div class="title" slot="title">测试 v-model</div>
        <div style="display: flex; align-items: center;">
          <input v-model="inputmodel" />
-         <text style="margin-left: 30rpx;">Value: {{inputmodel}}</text>
+         <text style="margin-left: 30rpx;">Value: \{{inputmodel}}</text>
        </div>
      </panel>
 
@@ -71,7 +71,7 @@
 
       <text class="testcounter">全局计数器：</text>
       <div class="counterview">
-        <button @tap="mynum++" size="mini">全局计数器: {{mynum}}</button>
+        <button @tap="mynum++" size="mini">全局计数器: \{{mynum}}</button>
       </div>
 
       <text class="testcounter">计数组件1 - num: </text>

@@ -13,7 +13,7 @@
         </div>
         <div v-for="(item, index) in list">
             <div @tap="tap" class="mylist">
-              <span>{{item.id}}</span>: {{item.title}}
+              <span>\{{item.id}}</span>: \{{item.title}}
             </div>
         </div>
     </div>

@@ -241,7 +241,7 @@
         }
       },
       counterEmit (num) {
-        console.log(`${this.$is} receive event, the number is: ${num});
+        console.log(`${this.$is} receive event, the number is: ${num}`);
       }
     },
 

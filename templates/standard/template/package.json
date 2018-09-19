@@ -2,7 +2,7 @@
   "name": "{{name}}",
   "version": "0.0.2",
   "description": "{{description}}",
-  "main": "dist/app.js",
+  "main": "weapp/app.js",
   "scripts": {
     "dev": "wepy build --watch",
     "build": "cross-env NODE_ENV=production wepy build --no-cache",
@@ -46,7 +46,7 @@
     "wepy-eslint": "^1.5.3",
     {{/lint}}
     "less": "^3.8.1",
-    "@wepy/compiler-babel": "^2.0.0",
+    "@wepy/compiler-babel": "^2.0.0-alpha.1",
     "@wepy/compiler-less": "^2.0.0"
   }
 }

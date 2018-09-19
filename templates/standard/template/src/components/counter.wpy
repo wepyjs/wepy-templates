@@ -78,9 +78,9 @@
     methods: {
       plus () {
         this.num = this.num + 1
-        console.log(this.$name + ' plus tap')
+        console.log('plus tapped in component');
 
-        this.$emit('index-emit', 1, 2, 3)
+        this.$emit('index-emit', this.num);
       },
       minus () {
         this.num = this.num - 1

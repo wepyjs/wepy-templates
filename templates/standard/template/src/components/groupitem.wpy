@@ -4,8 +4,8 @@
 </style>
 <template>
   <div class="groupitem">
-    --<span class="id">{{gitem.childid}}.</span>
-    <span class="name" @tap="tap"> {{gitem.childname}}</span>
+    --<span class="id">\{{gitem.childid}}.</span>
+    <span class="name" @tap="tap"> \{{gitem.childname}}</span>
   </div>
 </template>
 <script>

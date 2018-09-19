@@ -47,7 +47,7 @@
 
     <panel>
       <div class="title" slot="title">其它测试</div>
-      <button @tap="toast" size="mini">第三方组件</button>
+      <!--button @tap="toast" size="mini">第三方组件</button-->
       <button @tap="communicate" size="mini">组件通信</button>
       <button @tap="tap" size="mini">混合TAP事件</button>
     </panel>
@@ -105,6 +105,7 @@
 
 <script>
   import wepy from '@wepy/core'
+  import eventHub from '../common/eventHub';
   {{#redux}}
   import { connect } from 'wepy-redux'
   {{/redux}}
@@ -194,6 +195,9 @@
     },
 
     methods: {
+      tap () {
+        throw 'can not go here';
+      },
       plus () {
         this.mynum++
       },
@@ -236,12 +240,10 @@
           })
         }
       },
-      counterEmit (...args) {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      counterEmit (num) {
+        console.log(`${this.$is} receive event, the number is: ${num});
       }
     },
-
 
     created () {
       let self = this

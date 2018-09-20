@@ -34,13 +34,10 @@ module.exports = {
     babel: {
       sourceMap: true,
       presets: [
-        'env'
+        '@babel/preset-env'
       ],
       plugins: [
-        'transform-class-properties',
-        'transform-decorators-legacy',
-        'transform-object-rest-spread',
-        'transform-export-extensions',
+        '@wepy/import-regenerator'
       ]
     }
   },

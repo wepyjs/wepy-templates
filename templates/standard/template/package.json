@@ -44,7 +44,7 @@
     "wepy-eslint": "^1.5.3",
     {{/lint}}
     "less": "^3.8.1",
-    "@wepy/compiler-babel": "^2.0.0-alpha.1",
+    "@wepy/compiler-babel": "^2.0.0-alpha.2",
     "@wepy/compiler-less": "^2.0.0"
   }
 }

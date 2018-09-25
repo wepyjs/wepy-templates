@@ -37,7 +37,7 @@ module.exports = {
         '@babel/preset-env'
       ],
       plugins: [
-        '@wepy/import-regenerator'
+        '@wepy/babel-plugin-import-regenerator'
       ]
     }
   },

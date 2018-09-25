@@ -29,6 +29,7 @@
     "wepy-com-toast": "^1.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@wepy/babel-plugin-import-regenerator": "0.0.1",
     "babel-eslint": "^7.2.1",

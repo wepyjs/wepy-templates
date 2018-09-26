@@ -45,9 +45,9 @@ module.exports = {
     }*/
   },
   "filters": {
-    ".eslintignore": "lint",
-    ".eslintrc.js": "lint",
-    "src/index.template.html": "web",
-    "src/store/**/*": "redux"
+    // ".eslintignore": "lint",
+    // ".eslintrc.js": "lint",
+    // "src/index.template.html": "web",
+    // "src/store/**/*": "redux"
   }
 }

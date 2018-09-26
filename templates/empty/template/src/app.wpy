@@ -2,7 +2,7 @@
 </style>
 
 <script>
-import wepy from 'wepy'
+import wepy from '@wepy/core'
 
 wepy.app({
   onLaunch() {

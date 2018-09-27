@@ -9,5 +9,5 @@
   "compileType": "miniprogram",
   "appid": "{{appid}}",
   "projectname": "{{name}}",
-  "miniprogramRoot": "./dist"
+  "miniprogramRoot": "./weapp"
 }

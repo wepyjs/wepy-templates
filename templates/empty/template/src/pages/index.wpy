@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import wepy from 'wepy';
+  import wepy from '@wepy/core';
 
   wepy.page({
     onLoad() {

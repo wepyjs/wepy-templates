@@ -26,6 +26,7 @@
     "@wepy/core": "^2.0.0-alpha",
     "wepy": "^1.6.0",
     "wepy-async-function": "^1.4.4",
+    "miniprogram-slide-view": "0.0.3",
     "wepy-com-toast": "^1.0.2"
   },
   "devDependencies": {

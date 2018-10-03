@@ -122,7 +122,7 @@
     <panel>
       <div class="title" slot="title">测试引用第三方原生组件</div>
       <slide-view class="slide" width="640" height="80" slideWidth="266">
-        <view class="left" slot="left">这里是插入到组内容</view>
+        <view class="left" slot="left">这是一个原生组件，右滑试试看。</view>
         <view class="right" slot="right">
           <view class="right-item">删除</view>
         </view>

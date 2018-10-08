@@ -44,6 +44,17 @@
     }
   }
 </style>
+<wxs module="m1" lang="babel">
+const getTime = (time) => {
+  let date = getDate(time);
+  let hour = date.getHours();
+  let mins = date.getMinutes();
+  let sec = date.getSeconds();
+  let milli = date.getMilliseconds();
+  return `${hour}:${mins}:${sec}.${milli}`;
+}
+module.exports.getTime = getTime;
+</wxs>
 <template>
   <div class="container">
     <div class="userinfo" @tap="handleViewTap">
@@ -54,7 +65,7 @@
     <panel>
       <div class="title" slot="title">测试数据绑定</div>
 
-      <text class="info" @tap="normalTitle = '已被修改'">\{{normalTitle}}</text>
+      <text class="info" @tap="currentTime = +new Date()">\{{m1.getTime(currentTime)}}</text>
       <text class="info">\{{setTimeoutTitle}}</text>
       <text class="info" @tap="mixintap">\{{mixin}}</text>
       <text class="info">\{{testcomputed}}</text>
@@ -167,7 +178,7 @@
       userInfo: {
         nickName: '加载中...'
       },
-      normalTitle: '原始标题',
+      currentTime: +new Date(),
       setTimeoutTitle: '标题三秒后会被修改',
       count: 0,
       netrst: '',
@@ -276,7 +287,7 @@
 
     created () {
       let self = this
-      self.normalTitle = '标题已被修改';
+      self.currentTime = +new Date(); 
 
       self.setTimeoutTitle = '标题三秒后会被修改';
       setTimeout(() => {

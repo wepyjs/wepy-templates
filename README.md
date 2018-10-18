@@ -1,6 +1,8 @@
 # WePY Templates
 
-This project is a collection of all the templates from `wepy lsit`
+This project is a collection of all the templates from `wepy list`
+
+*Notice: This branch is for wepy@2.0.x* 
 
 ## Usage
 

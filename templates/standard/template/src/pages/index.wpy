@@ -170,6 +170,20 @@ module.exports.getTime = getTime;
       navigationBarTitleText: 'test'
     },
 
+    hooks: {
+      // Page 级别 hook, 只对当前 Page 的 setData 生效。
+      'before-setData': function (dirty) {
+        if (Math.random() < 0.2) {
+          console.log('setData canceled');
+          return false; // Cancel setData
+        }
+        dirty.time = +new Date();
+        return dirty;
+      }
+    },
+
+ 
+
     mixins: [testMixin],
 
     data: {

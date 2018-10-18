@@ -2,6 +2,8 @@
 
 This project is a collection of all the templates from `wepy list`
 
+*Notice: `master` branch is for wepy@1.7.x. If you want to update the templates for wepy@2.0.x, please move here: [branch 2.0.x](https://github.com/wepyjs/wepy-templates/tree/2.0.x)*
+
 ## Usage
 
 ```

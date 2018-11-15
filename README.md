@@ -30,9 +30,9 @@ $ wepy init ${template-name} myfolder
 
 | Repository | Stars | Description | Last Updated |
 | --- | --- | --- | --- |
-| [wepyjs/wepy-wechat-demo](https://github.com/wepyjs/wepy-wechat-demo) | 403 | wepy仿微信聊天界面 | 2018-11-07T12:18:51Z |
+| [wepyjs/wepy-wechat-demo](https://github.com/wepyjs/wepy-wechat-demo) | 404 | wepy仿微信聊天界面 | 2018-11-07T12:18:51Z |
 | [wepyjs/wepy-weui-demo](https://github.com/wepyjs/wepy-weui-demo) | 318 | WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上 | 2018-01-06T14:02:02Z |
-| [brucx/wepy-zanui-demo](https://github.com/brucx/wepy-zanui-demo) | 211 | 基于zanui-weapp移植的一套wepy界面框架 | 2018-05-10T08:09:50Z |
+| [brucx/wepy-zanui-demo](https://github.com/brucx/wepy-zanui-demo) | 212 | 基于zanui-weapp移植的一套wepy界面框架 | 2018-05-10T08:09:50Z |
 
 ## Links
 

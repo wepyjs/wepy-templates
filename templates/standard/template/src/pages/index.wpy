@@ -121,7 +121,7 @@ module.exports.getTime = getTime;
     <panel>
       <div class="title" slot="title">测试组件Repeat</div>
       <div v-for="(item, index) in groupList">
-        <group :grouplist="item" :indexa="index"></group>
+        <group :grouplist="item" :index="index"></group>
       </div>
     </panel>
 

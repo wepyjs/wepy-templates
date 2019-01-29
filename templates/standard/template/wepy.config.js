@@ -28,9 +28,6 @@ module.exports = {
     less: {
       compress: prod
     },
-    /*sass: {
-      outputStyle: 'compressed'
-    },*/
     babel: {
       sourceMap: true,
       presets: [
@@ -47,28 +44,3 @@ module.exports = {
   }
 }
 
-if (prod) {
-
-  // 压缩sass
-  // module.exports.compilers['sass'] = {outputStyle: 'compressed'}
-
-  // 压缩js
-  module.exports.plugins = {
-    uglifyjs: {
-      filter: /\.js$/,
-      config: {
-      }
-    },
-    imagemin: {
-      filter: /\.(jpg|png|jpeg)$/,
-      config: {
-        jpg: {
-          quality: 80
-        },
-        png: {
-          quality: 80
-        }
-      }
-    }
-  }
-}

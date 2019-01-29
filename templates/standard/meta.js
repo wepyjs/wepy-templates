@@ -30,11 +30,11 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
-    /*
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
     },
+    /*
     "redux": {
       "type": "confirm",
       "message": "Use Redux in your project?"

@@ -5,7 +5,7 @@
       <checkbox-group @change="finishTodo(index)">
         <checkbox type="checkbox" :checked="todos[index].done" />
       </checkbox-group>
-      <span class="title">{{todo.title}}</span>
+      <span class="title">\\{{todo.title}}</span>
       <span>
           <div @click="deleteTodo(index)">
           <image class="delete" src="../images/delete.png"></image>

@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="input-field" :class="{'active': focus}">
-      <image src="{{focus ? '../images/menu-active.png' : '../images/menu.png'}}"></image>
+      <image src="\{{focus ? '../images/menu-active.png' : '../images/menu.png'}}"></image>
       <input v-model="newTodo" class="input" @focus="focus = true" @blur="clear" />
       <span class="placeholder">What to do?</span>
     </div>

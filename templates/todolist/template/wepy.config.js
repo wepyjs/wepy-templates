@@ -21,20 +21,6 @@ module.exports = {
   compilers: {
     less: {
       compress: true
-    },
-    /*sass: {
-      outputStyle: 'compressed'
-    },*/
-    babel: {
-      sourceMap: true,
-      presets: [
-        'env'
-      ],
-      plugins: [
-        'babel-plugin-transform-class-properties',
-        'transform-export-extensions',
-        'syntax-export-extensions'
-      ]
     }
   },
   plugins: [

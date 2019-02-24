@@ -1,0 +1,15 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx5ef68972e33c5bac",
+	"projectname": "todolist-typescript",
+	"miniprogramRoot": "weapp/",
+	"condition": {}
+}

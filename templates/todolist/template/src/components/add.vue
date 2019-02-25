@@ -10,7 +10,7 @@
 </template>
 <script{{#ts}} lang="typescript"{{/ts}}>
 import wepy from '@wepy/core';
-import { String } from '../common/lib/stringOpration'; 
+import { String } from '../common/lib/stringOperation'; 
 
   wepy.component({
     data: {

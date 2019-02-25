@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   "filters": {
-    "./src/common/lib/stringOpration.js": "ts",
-    "./src/common/lib/stringOpration.ts": "!ts",
+    "./src/common/lib/stringOperation.js": "ts",
+    "./src/common/lib/stringOperation.ts": "!ts",
   }
 }

@@ -22,12 +22,9 @@
     {{#if ts}}
     "typescript": "^3.3.3333",
     {{else}}
-    "babel-eslint": "^7.2.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-export-extensions": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@wepy/babel-plugin-import-regenerator": "0.0.2",
     {{/if}}
     "cross-env": "^5.1.3",
     "less": "^3.8.1"

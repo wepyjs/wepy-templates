@@ -1,8 +1,4 @@
-{{#if ts}}
-const TypeScriptCompiler = require('@wepy/compiler-typescript');
-{{/if}}
 const path = require('path');
-
 
 var prod = process.env.NODE_ENV === 'production'
 
@@ -21,12 +17,21 @@ module.exports = {
   compilers: {
     less: {
       compress: true
+    },
+    {{#if ts}}
+    typescript: {}
+    {{else}}
+    babel: {
+      presets: [
+        '@babel/preset-env'
+      ],
+      plugins: [
+        '@wepy/babel-plugin-import-regenerator'
+      ]
     }
+    {{/if}}
   },
   plugins: [
-    {{#ts}}
-    TypeScriptCompiler()
-    {{/ts}}
   ],
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']

@@ -4,11 +4,10 @@
   "description": "{{description}}",
   "main": "dist/app.js",
   "scripts": {
-    "dev": "wepy build --watch",
-    "build": "cross-env NODE_ENV=production wepy build --no-cache",
-    "dev:web": "wepy build --output web",
-    "clean": "find ./dist -maxdepth 1 -not -name 'project.config.json' -not -name 'dist' | xargs rm -rf",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "./node_modules/.bin/wepy build --watch",
+    "build": "cross-env NODE_ENV=production ./node_modules/.bin/wepy build --no-cache",
+    "clean": "rm -rf weapp",
+    "test": "echo \"Error: no test specified\" && exit 1",
   },
   "author": "{{author}}",
   "license": "MIT",
@@ -16,8 +15,9 @@
     "@wepy/core": "2.0.0-alpha"
   },
   "devDependencies": {
-    "@wepy/compiler-babel": "^2.0.0",
-    "@wepy/compiler-less": "^2.0.0",
+    "@wepy/cli": "^2.0.0-alpha.4",
+    "@wepy/compiler-babel": "^2.0.2",
+    "@wepy/compiler-less": "^2.0.1",
     "@wepy/compiler-typescript": "^2.0.1",
     {{#if ts}}
     "typescript": "^3.3.3333",

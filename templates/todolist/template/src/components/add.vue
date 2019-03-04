@@ -21,7 +21,7 @@ import { String } from '../common/lib/stringOperation';
       clear () {
         this.focus = false;
         // Can not remove it directly, otherwise v-model will set to empty before submit.
-        setTimeout(() => this.newTodo = '', 10);
+        setTimeout(() => this.newTodo = '', 300);
       },
       submitTodo () {
         if (this.newTodo !== String.Empty) {

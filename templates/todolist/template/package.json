@@ -12,10 +12,10 @@
   "author": "{{author}}",
   "license": "MIT",
   "dependencies": {
-    "@wepy/core": "^2.0.0-alpha.4"
+    "@wepy/core": "^2.0.0-alpha.6"
   },
   "devDependencies": {
-    "@wepy/cli": "^2.0.0-alpha.4",
+    "@wepy/cli": "^2.0.0-alpha.5",
     "@wepy/compiler-babel": "^2.0.2",
     "@wepy/compiler-less": "^2.0.1",
     "@wepy/compiler-typescript": "^2.0.1",

@@ -69,11 +69,9 @@ module.exports.getTime = getTime;
       <text class="info">\{{setTimeoutTitle}}</text>
       <text class="info" @tap="mixintap">\{{mixin}}</text>
       <text class="info">\{{testcomputed}}</text>
-      {{#redux}}
-      <text class="info">\{{num}}</text>
-      <text class="info">\{{asyncNum}}</text>
-      <text class="info">\{{sumNum}}</text>
-      {{/redux}}
+      {{#vuex}}
+      <text class="info">\{{counter}}</text>
+      {{/vuex}}
     </panel>
 
     <panel>
@@ -146,26 +144,16 @@ module.exports.getTime = getTime;
 <script>
   import wepy from '@wepy/core'
   import eventHub from '../common/eventHub';
-  {{#redux}}
-  import { connect } from 'wepy-redux'
-  {{/redux}}
+  {{#vuex}}
+  import { mapState } from '@wepy/x';
+  import store from '../store';
+  {{/vuex}}
   import testMixin from '../mixins/test'
 
-  {{#redux}}
-  @connect({
-    num (state) {
-      return state.counter.num
-    },
-    asyncNum (state) {
-      return state.counter.asyncNum
-    },
-    sumNum (state) {
-      return state.counter.num + state.counter.asyncNum
-    }
-  })
-  {{/redux}}
-
   wepy.page({
+    {{#vuex}}
+    store,
+    {{/vuex}}
     config: {
       navigationBarTitleText: 'test'
     },
@@ -243,6 +231,9 @@ module.exports.getTime = getTime;
     },
 
     computed: {
+      {{#vuex}}
+      ...mapState([ 'counter' ]),
+      {{/vuex}}
       testcomputed () {
         return 'computed - ' + this.mynum;
       }

@@ -12,14 +12,10 @@
 <script>
 import wepy from '@wepy/core';
 import eventHub from './common/eventHub';
-//import 'wepy-async-function'
-
 {{#redux}}
-import { setStore } from 'wepy-redux'
-import configStore from './store'
+import vuex from '@wepy/x';
 
-const store = configStore()
-setStore(store)
+wepy.use(vuex);
 {{/redux}}
 
 wepy.app({

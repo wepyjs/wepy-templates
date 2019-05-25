@@ -8,14 +8,7 @@
 </style>
 <template>
   <div class="list">
-    <div>
-      <button @tap="add" size="mini">添加列表</button>
-    </div>
-    <block wx:for-items="\{{list}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-      <div @tap="tap" class="mylist">
-        <span>\{{item.id}}</span>: \{{item.title}}
-      </div>
-    </block>
+     This component is not used. because list is an aliasField in package.json 
   </div>
 </template>
 <script>

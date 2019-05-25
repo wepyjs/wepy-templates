@@ -34,11 +34,10 @@ module.exports = {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
     },
-    /*
-    "redux": {
+    "vuex": {
       "type": "confirm",
-      "message": "Use Redux in your project?"
-    },
+      "message": "Use Vuex in your project?"
+    }/*,
     "web": {
       "type": "confirm",
       "message": "Use web transform feature in your project?"
@@ -47,5 +46,6 @@ module.exports = {
   "filters": {
     ".eslintignore": "lint",
     ".eslintrc.js": "lint",
+    "./store/index.js': "vuex"
   }
 }

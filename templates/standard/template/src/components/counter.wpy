@@ -18,13 +18,11 @@
   <div class="counter \{{style}}">
     <button @tap="plus" size="mini">  +  </button>
     <button @tap="minus" size="mini">  -  </button>
-    {{#if redux}}
-    <button @tap="incNum" size="mini">  INCREMENT  </button>
-    <button @tap="decNum" size="mini">  DECREMENT  </button>
-    <button @tap="asyncInc" size="mini">  ASYNC INCREMENT  </button>
-    <span class="count"> \{{num}} </span>
-    <span class="count"> \{{stateNum}} </span>
-    <span class="count"> \{{asyncNum}} </span>
+    {{#if vuex}}
+    <button @tap="increment" size="mini">  INCREMENT  </button>
+    <button @tap="decrement" size="mini">  DECREMENT  </button>
+    <button @tap="incrementAsync" size="mini">  ASYNC INCREMENT  </button>
+    <span class="count"> \{{counter}} </span>
     {{else}}
     <span class="count" :class="{red: num > 55, green: num < 45}"> \{{num}} </span>
     {{/if}}
@@ -32,26 +30,15 @@
 </template>
 <script>
   import wepy from '@wepy/core'
-  {{#redux}}
-  import { connect } from 'wepy-redux'
-  import { INCREMENT, DECREMENT } from '../store/types/counter'
-  import { asyncInc } from '../store/actions'
-
-  @connect({
-    stateNum (state) {
-      return state.counter.num
-    },
-    asyncNum (state) {
-      return state.counter.asyncNum
-    }
-  }, {
-    incNum: INCREMENT,
-    decNum: DECREMENT,
-    asyncInc
-  })
-  {{/redux}}
+  {{#vuex}}
+  import store from '../store';
+  import { mapState, mapActions } from '@wepy/x';
+  {{/vuex}}
 
   wepy.component({
+    {{#vuex}}
+    store,
+    {{/vuex}}
     props: {
       num: {
         type: [Number, String],
@@ -61,6 +48,9 @@
         default: 50
       }
     },
+    {{#vuex}}
+    computed: mapState([ 'counter' ]),
+    {{/vuex}}
 
     events: {
       'index-broadcast': (...args) => {
@@ -76,6 +66,13 @@
     },
 
     methods: {
+      {{#vuex}}
+      ...mapActions([
+        'increment',
+        'decrement',
+        'incrementAsync'
+      ]),
+      {{/vuex}}
       plus () {
         this.num = this.num + 1
         console.log('plus tapped in component');

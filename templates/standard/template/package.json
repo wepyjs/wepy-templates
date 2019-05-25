@@ -16,20 +16,14 @@
   "author": "{{author}}",
   "license": "MIT",
   "dependencies": {
-    {{#redux}}
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-promise": "^0.5.3",
-    "wepy-redux": "^1.5.3",
-    {{/redux}}
-    "@wepy/core": "^2.0.0-alpha.6",
-    "wepy": "^1.6.0",
-    "wepy-async-function": "^1.4.4",
-    "miniprogram-slide-view": "0.0.3",
-    "wepy-com-toast": "^1.0.2"
+    {{#vuex}}
+    "@wepy/x": "^2.0.2",
+    {{/vuex}}
+    "@wepy/core": "^2.0.0-alpha.8",
+    "miniprogram-slide-view": "0.0.3"
   },
   "devDependencies": {
-    "@wepy/cli": "^2.0.0-alpha.6",
+    "@wepy/cli": "^2.0.0-alpha.10",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@wepy/babel-plugin-import-regenerator": "0.0.2",

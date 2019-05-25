@@ -46,6 +46,6 @@ module.exports = {
   "filters": {
     ".eslintignore": "lint",
     ".eslintrc.js": "lint",
-    "./store/index.js": "vuex"
+    "src/store/index.js": "vuex"
   }
 }

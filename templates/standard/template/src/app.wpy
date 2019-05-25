@@ -12,11 +12,11 @@
 <script>
 import wepy from '@wepy/core';
 import eventHub from './common/eventHub';
-{{#redux}}
+{{#vuex}}
 import vuex from '@wepy/x';
 
 wepy.use(vuex);
-{{/redux}}
+{{/vuex}}
 
 wepy.app({
   hooks: {

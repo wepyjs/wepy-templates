@@ -92,7 +92,7 @@
         'incrementAsync'
       ]),
       {{/if_eq}}
-      {{#if state "Redux"}}
+      {{#if_eq state "Redux"}}
       ...mapActions([
         increment: INCREMENT,
         decrement: DECREMENT,

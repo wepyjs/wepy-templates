@@ -93,11 +93,11 @@
       ]),
       {{/if_eq}}
       {{#if_eq state "Redux"}}
-      ...mapActions([
+      ...mapActions({
         increment: INCREMENT,
         decrement: DECREMENT,
         asyncInc, 
-      ]),
+      }),
       {{/if_eq}}
       plus () {
         this.num = this.num + 1

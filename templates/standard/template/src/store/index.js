@@ -28,7 +28,7 @@ export default new Vuex.Store({
   }
 });
 {{/if_eq}}
-{{if_eq state "Redux"}}
+{{#if_eq state "Redux"}}
 import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise'
 

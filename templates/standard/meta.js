@@ -35,7 +35,7 @@ module.exports = {
       "message": "Use ESLint to lint your code?"
     },
     "state": {
-      "type": "List",
+      "type": "list",
       "message": "Choose a state container",
       "choices": [
         "Vuex", "Redux", "None"
@@ -50,6 +50,12 @@ module.exports = {
   "filters": {
     ".eslintignore": "lint",
     ".eslintrc.js": "lint",
-    "src/store/index.js": "vuex"
+    "src/store/index.js": "state !== 'None'",
+    "src/store/reducers/counter.js": "state === 'Redux'",
+    "src/store/reducers/index.js": "state === 'Redux'",
+    "src/store/actions/counter.js": "state === 'Redux'",
+    "src/store/actions/index.js": "state === 'Redux'",
+    "src/store/types/counter.js": "state === 'Redux'",
+    "src/store/types/index.js": "state === 'Redux'"
   }
 }

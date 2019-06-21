@@ -1,5 +1,5 @@
+{{#if_eq state "Vuex"}}
 import Vuex from '@wepy/x';
-
 
 export default new Vuex.Store({
   state: {
@@ -26,4 +26,13 @@ export default new Vuex.Store({
       }, 1000);
     }
   }
-})
+});
+{{/if_eq}}
+{{if_eq state "Redux"}}
+import { createStore, applyMiddleware } from 'redux';
+import promiseMiddleware from 'redux-promise'
+
+import rootReducer from './reducers';
+
+export default createStore(rootReducer, applyMiddleware(promiseMiddleware));
+{{/if_eq}}

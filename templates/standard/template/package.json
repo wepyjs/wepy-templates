@@ -16,9 +16,15 @@
   "author": "{{author}}",
   "license": "MIT",
   "dependencies": {
-    {{#vuex}}
+    {{#if_eq state "Vuex"}}
     "@wepy/x": "^2.0.2",
-    {{/vuex}}
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    "@wepy/redux": "^2.0.1",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5",
+    "redux-promise": "^0.6.0",
+    {{/if_eq}}
     "@wepy/core": "^2.0.0-alpha.8",
     "miniprogram-slide-view": "0.0.3"
   },

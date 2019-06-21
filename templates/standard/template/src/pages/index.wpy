@@ -69,9 +69,12 @@ module.exports.getTime = getTime;
       <text class="info">\{{setTimeoutTitle}}</text>
       <text class="info" @tap="mixintap">\{{mixin}}</text>
       <text class="info">\{{testcomputed}}</text>
-      {{#vuex}}
+      {{#if_eq state "Vuex"}}
       <text class="info">\{{counter}}</text>
-      {{/vuex}}
+      {{/if_eq}}
+      {{#if_eq state "Redux"}}
+      <text class="info">\{{counter.num}}</text>
+      {{/if_eq}}
     </panel>
 
     <panel>
@@ -144,16 +147,23 @@ module.exports.getTime = getTime;
 <script>
   import wepy from '@wepy/core'
   import eventHub from '../common/eventHub';
-  {{#vuex}}
+  {{#if_eq state "Vuex"}}
   import { mapState } from '@wepy/x';
   import store from '../store';
-  {{/vuex}}
+  {{/if_eq}}
+  {{#if_eq state "Redux"}}
+  import { mapState } from '@wepy/redux';
+  import store from '../store';
+  {{/if_eq}}
   import testMixin from '../mixins/test'
 
   wepy.page({
-    {{#vuex}}
+    {{#if_eq state "Vuex"}}
     store,
-    {{/vuex}}
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    store,
+    {{/if_eq}}
     config: {
       navigationBarTitleText: 'test'
     },
@@ -231,9 +241,12 @@ module.exports.getTime = getTime;
     },
 
     computed: {
-      {{#vuex}}
+      {{#if_eq state "Vuex"}}
       ...mapState([ 'counter' ]),
-      {{/vuex}}
+      {{/if_eq}}
+      {{#if_eq state "Redux"}}
+      ...mapState([ 'counter' ]),
+      {{/if_eq}}
       testcomputed () {
         return 'computed - ' + this.mynum;
       }

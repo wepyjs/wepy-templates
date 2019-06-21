@@ -34,10 +34,14 @@ module.exports = {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
     },
-    "vuex": {
-      "type": "confirm",
-      "message": "Use Vuex in your project?"
-    }/*,
+    "state": {
+      "type": "List",
+      "message": "Choose a state container",
+      "choices": [
+        "Vuex", "Redux", "None"
+      ]
+    }
+    /*,
     "web": {
       "type": "confirm",
       "message": "Use web transform feature in your project?"

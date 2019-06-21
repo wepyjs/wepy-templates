@@ -18,27 +18,43 @@
   <div class="counter \{{style}}">
     <button @tap="plus" size="mini">  +  </button>
     <button @tap="minus" size="mini">  -  </button>
-    {{#if vuex}}
+    {{#if_eq state "Vuex"}}
     <button @tap="increment" size="mini">  INCREMENT  </button>
     <button @tap="decrement" size="mini">  DECREMENT  </button>
     <button @tap="incrementAsync" size="mini">  ASYNC INCREMENT  </button>
     <span class="count"> \{{counter}} </span>
-    {{else}}
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    <button @tap="increment" size="mini">  INCREMENT  </button>
+    <button @tap="decrement" size="mini">  DECREMENT  </button>
+    <button @tap="asyncInc" size="mini">  ASYNC INCREMENT  </button>
+    <span class="count"> \{{counter.num}} - \{{counter.asyncNum}} </span>
+    {{/if_eq}}
+    {{#if_eq state "None"}}
     <span class="count" :class="{red: num > 55, green: num < 45}"> \{{num}} </span>
-    {{/if}}
+    {{/if_eq}}
   </div>
 </template>
 <script>
   import wepy from '@wepy/core'
-  {{#vuex}}
+  {{#if_eq state "Vuex"}}
   import store from '../store';
   import { mapState, mapActions } from '@wepy/x';
-  {{/vuex}}
+  {{/if_eq}}
+  {{#if_eq state "Redux"}}
+  import store from '../store';
+  import { mapState, mapActions } from '@wepy/redux';
+  import { INCREMENT, DECREMENT, ASYNC_INCREMENT } from '../store/types';
+  import { asyncInc } from '../store/actions';
+  {{/if_eq}}
 
   wepy.component({
-    {{#vuex}}
+    {{#if_eq state "Vuex"}}
     store,
-    {{/vuex}}
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    store,
+    {{/if_eq}}
     props: {
       num: {
         type: [Number, String],
@@ -48,9 +64,12 @@
         default: 50
       }
     },
-    {{#vuex}}
+    {{#if_eq state "Vuex"}}
     computed: mapState([ 'counter' ]),
-    {{/vuex}}
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    computed: mapState([ 'counter' ]),
+    {{/if_eq}}
 
     events: {
       'index-broadcast': (...args) => {
@@ -66,13 +85,20 @@
     },
 
     methods: {
-      {{#vuex}}
+      {{#if_eq state "Vuex"}}
       ...mapActions([
         'increment',
         'decrement',
         'incrementAsync'
       ]),
-      {{/vuex}}
+      {{/if_eq}}
+      {{#if state "Redux"}}
+      ...mapActions([
+        increment: INCREMENT,
+        decrement: DECREMENT,
+        asyncInc, 
+      ]),
+      {{/if_eq}}
       plus () {
         this.num = this.num + 1
         console.log('plus tapped in component');

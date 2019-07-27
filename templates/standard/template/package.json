@@ -25,7 +25,7 @@
     "redux-actions": "^2.6.5",
     "redux-promise": "^0.6.0",
     {{/if_eq}}
-    "@wepy/core": "^2.0.0-alpha.8",
+    "@wepy/core": "^2.0.0-alpha.9",
     "miniprogram-slide-view": "0.0.3"
   },
   "devDependencies": {

@@ -29,6 +29,10 @@
       "star": 215,
       "description": "基于zanui-weapp移植的一套wepy界面框架",
       "last_update": "2018-05-10T08:09:50Z"
+    },
+    {
+      "repo": "qianliu013/swan-wepy-todo-demo",
+      "description": "基于 wepy 的百度小程序 todo 管理 demo"
     }
   ]
 }

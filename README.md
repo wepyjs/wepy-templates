@@ -30,10 +30,10 @@ $ wepy init ${template-name} myfolder
 
 | Repository | Stars | Description | Last Updated |
 | --- | --- | --- | --- |
-| [wepyjs/wepy-wechat-demo](https://github.com/wepyjs/wepy-wechat-demo) | 415 | wepy仿微信聊天界面 | 2018-11-07T12:18:51Z |
-| [wepyjs/wepy-weui-demo](https://github.com/wepyjs/wepy-weui-demo) | 321 | WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上 | 2018-01-06T14:02:02Z |
-| [brucx/wepy-zanui-demo](https://github.com/brucx/wepy-zanui-demo) | 215 | 基于zanui-weapp移植的一套wepy界面框架 | 2018-05-10T08:09:50Z |
-| [qianliu013/swan-wepy-todo-demo](https://github.com/qianliu013/swan-wepy-todo-demo) | - | 基于 wepy 的百度小程序 todo 管理 demo | - |
+| [wepyjs/wepy-wechat-demo](https://github.com/wepyjs/wepy-wechat-demo) | 469 | wepy仿微信聊天界面 | 2018-11-07T12:18:51Z |
+| [wepyjs/wepy-weui-demo](https://github.com/wepyjs/wepy-weui-demo) | 367 | WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上 | 2018-01-06T14:02:02Z |
+| [brucx/wepy-zanui-demo](https://github.com/brucx/wepy-zanui-demo) | 245 | 基于zanui-weapp移植的一套wepy界面框架 | 2018-05-10T08:09:50Z |
+| [qianliu013/swan-wepy-todo-demo](https://github.com/qianliu013/swan-wepy-todo-demo) | 1 | 基于 wepy 的百度小程序 todo 管理 demo | 2018-12-18T08:23:06Z |
 
 ## Links
 

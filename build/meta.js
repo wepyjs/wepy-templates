@@ -5,6 +5,12 @@ const path = require('path');
 const github3 = require('github3');
 const { execSync } = require('child_process');
 
+const date = new Date();
+const dateStr = `${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()}`;
+
+console.log(`START TASK AT ${dateStr}`);
+
+
 const args = process.argv.splice(2);
 
 const isCron = args[0] === '--cron';
@@ -106,11 +112,6 @@ const buildMeta = () => {
     console.error(e);
   });
 };
-
-let date = new Date();
-let dateStr = `${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()}`;
-
-console.log(`START TASK AT ${dateStr}`);
 
 if (add) {
   addRepo(add);

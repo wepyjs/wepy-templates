@@ -7,6 +7,7 @@ module.exports = {
   eslint: {{lint}},
   {{/lint}}
   cliLogs: !prod,
+  static: ['static'],
   build: {
     {{#web}}
     web: {

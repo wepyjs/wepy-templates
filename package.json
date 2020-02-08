@@ -7,6 +7,7 @@
     "build": "rm -rf zips/* && gulp build",
     "build:meta": "node build/meta.js",
     "build:readme": "node build/readme.js",
+    "cos": "node build/upload.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/wepyjs/wepy_templates#readme",
   "devDependencies": {
+    "cos-nodejs-sdk-v5": "^2.5.14",
     "github3": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.8",

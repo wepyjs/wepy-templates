@@ -20,19 +20,19 @@
     },
     {
       "repo": "wepyjs/wepy-weui-demo",
-      "star": 372,
+      "star": 373,
       "description": "WeUI 在 WePY 中的使用示例，同一份代码可以运行在小程序上和Web上",
       "last_update": "2018-01-06T14:02:02Z"
     },
     {
       "repo": "brucx/wepy-zanui-demo",
-      "star": 244,
+      "star": 246,
       "description": "基于zanui-weapp移植的一套wepy界面框架",
       "last_update": "2018-05-10T08:09:50Z"
     },
     {
       "repo": "cloudkits/wepy-tcb-demo",
-      "star": 19,
+      "star": 18,
       "description": "小程序·云开发 在 WePY 中的使用示例",
       "last_update": "2019-02-02T14:57:49Z"
     }

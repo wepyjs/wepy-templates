@@ -4,7 +4,7 @@
   "description": "wepy templates collection",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf zips/* && gulp build",
+    "build": "rm -rf zips/* && gulp build && npm run build:meta && npm run build:readme",
     "build:meta": "node build/meta.js",
     "build:readme": "node build/readme.js",
     "cos": "node build/upload.js",

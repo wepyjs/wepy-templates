@@ -20,7 +20,7 @@ jobs:
     - run: npm run build
     - name: If there are build changes, then push them
       run: |
-        git diff-index --cached --quiet HEAD || (git commit -am 'build: build from Github Actions' && git push)
+        [ $(git status -s | wc -l) -gt 0 ] &&  git commit -am 'build: Github Actions Build' && git push
     - run: npm run cos
       env:
         CI: true

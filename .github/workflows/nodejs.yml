@@ -18,6 +18,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build
+    - name: If there are build changes, then push them
+      run: git diff-index --cached --quiet HEAD || (git commit -am 'build: build from Github Actions' && git push)
     - run: npm run cos
       env:
         CI: true

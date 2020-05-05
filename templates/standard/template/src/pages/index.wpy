@@ -253,6 +253,9 @@ module.exports.getTime = getTime;
     },
 
     methods: {
+      handleViewTap () {
+        console.log('handleVieTap clicked');
+      },
       tap () {
         throw 'can not go here';
       },

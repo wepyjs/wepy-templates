@@ -3,14 +3,19 @@ var prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
   wpyExt: '.wpy',
-  eslint: false,
+  {{#lint}}
+  eslint: {{lint}},
+  {{/lint}}
   cliLogs: !prod,
+  static: ['static'],
   build: {
+    {{#web}}
     web: {
       htmlTemplate: path.join('src', 'index.template.html'),
       htmlOutput: path.join('web', 'index.html'),
       jsOutput: path.join('web', 'index.js')
     }
+    {{/web}}
   },
   resolve: {
     alias: {

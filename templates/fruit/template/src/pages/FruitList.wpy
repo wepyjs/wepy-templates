@@ -133,7 +133,15 @@
   
 <script>
 import wepy from 'wepy';
-
+{{#if_eq state "Vuex"}}
+  import { mapState } from '@wepy/x';
+  import store from '../store';
+  {{/if_eq}}
+  {{#if_eq state "Redux"}}
+  import { mapState } from '@wepy/redux';
+  import store from '../store';
+  {{/if_eq}}
+  
 export default class Index extends wepy.page {
   config = {};
   components = {};

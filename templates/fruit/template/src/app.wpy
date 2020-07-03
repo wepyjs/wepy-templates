@@ -11,6 +11,16 @@
 
 <script>
 import wepy from 'wepy'
+{{#if_eq state "Vuex"}}
+import vuex from '@wepy/x';
+
+wepy.use(vuex);
+{{/if_eq}}
+{{#if_eq state "Redux"}}
+import wepyRedux from '@wepy/redux';
+
+wepy.use(wepyRedux);
+{{/if_eq}}
 
 export default class extends wepy.app {
   config = {

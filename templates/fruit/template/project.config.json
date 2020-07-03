@@ -1,5 +1,5 @@
 {
-	"description": "A WePY project",
+	"description": "{{description}}",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -28,8 +28,8 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"appid": "touristappid",
-	"projectname": "myprojwepy",
+	"appid": "{{appid}}",
+	"projectname": "{{name}}",
 	"miniprogramRoot": "dist/",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

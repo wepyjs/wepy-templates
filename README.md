@@ -25,6 +25,7 @@ $ wepy init ${template-name} myfolder
 | --- | --- |
 | [empty](https://github.com/wepyjs/wepy_templates/tree/master/templates/empty) | 空模板 |
 | [standard](https://github.com/wepyjs/wepy_templates/tree/master/templates/standard) | 模认模板，开启了promise、Async Function等 |
+| [standard-youshu](https://github.com/wepyjs/wepy_templates/tree/master/templates/standard-youshu) | 腾讯有数模板，零开发接入腾讯有数无痕埋点能力 |
 
 ## Github Project
 

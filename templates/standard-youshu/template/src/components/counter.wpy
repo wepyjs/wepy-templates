@@ -1,0 +1,115 @@
+<style lang="less">
+  .counter {
+    text-align: left;
+    font-size: 12px;
+  }
+  .count {
+    font-size: 18px;
+    font-weight: bold;
+    &.red {
+      color: red;
+    }
+    &.green {
+      color: green;
+    }
+  }
+</style>
+<template>
+  <div class="counter \{{style}}">
+    <button @tap="plus" size="mini">  +  </button>
+    <button @tap="minus" size="mini">  -  </button>
+    {{#if_eq state "Vuex"}}
+    <button @tap="increment" size="mini">  INCREMENT  </button>
+    <button @tap="decrement" size="mini">  DECREMENT  </button>
+    <button @tap="incrementAsync" size="mini">  ASYNC INCREMENT  </button>
+    <span class="count"> \{{counter}} </span>
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    <button @tap="increment" size="mini">  INCREMENT  </button>
+    <button @tap="decrement" size="mini">  DECREMENT  </button>
+    <button @tap="asyncInc" size="mini">  ASYNC INCREMENT  </button>
+    <span class="count"> \{{counter.num}} - \{{counter.asyncNum}} </span>
+    {{/if_eq}}
+    {{#if_eq state "None"}}
+    <span class="count" :class="{red: num > 55, green: num < 45}"> \{{num}} </span>
+    {{/if_eq}}
+  </div>
+</template>
+<script>
+  import wepy from '@wepy/core'
+  {{#if_eq state "Vuex"}}
+  import store from '../store';
+  import { mapState, mapActions } from '@wepy/x';
+  {{/if_eq}}
+  {{#if_eq state "Redux"}}
+  import store from '../store';
+  import { mapState, mapActions } from '@wepy/redux';
+  import { INCREMENT, DECREMENT, ASYNC_INCREMENT } from '../store/types';
+  import { asyncInc } from '../store/actions';
+  {{/if_eq}}
+
+  wepy.component({
+    {{#if_eq state "Vuex"}}
+    store,
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    store,
+    {{/if_eq}}
+    props: {
+      num: {
+        type: [Number, String],
+        coerce: function (v) {
+          return +v
+        },
+        default: 50
+      }
+    },
+    {{#if_eq state "Vuex"}}
+    computed: mapState([ 'counter' ]),
+    {{/if_eq}}
+    {{#if_eq state "Redux"}}
+    computed: mapState([ 'counter' ]),
+    {{/if_eq}}
+
+    events: {
+      'index-broadcast': (...args) => {
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      }
+    },
+
+    watch: {
+      num (curVal, oldVal) {
+        console.log(`旧值：${oldVal}，新值：${curVal}`)
+      }
+    },
+
+    methods: {
+      {{#if_eq state "Vuex"}}
+      ...mapActions([
+        'increment',
+        'decrement',
+        'incrementAsync'
+      ]),
+      {{/if_eq}}
+      {{#if_eq state "Redux"}}
+      ...mapActions({
+        increment: INCREMENT,
+        decrement: DECREMENT,
+        asyncInc, 
+      }),
+      {{/if_eq}}
+      plus () {
+        this.num = this.num + 1
+        console.log('plus tapped in component');
+
+        this.$emit('index-emit', this.num);
+      },
+      minus () {
+        this.num = this.num - 1
+        console.log(this.$name + ' minus tap')
+      }
+    }
+  })
+</script>
+

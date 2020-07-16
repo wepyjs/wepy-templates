@@ -1,0 +1,125 @@
+<style lang="less">
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+</style>
+
+<script>
+import wepy from '@wepy/core';
+import eventHub from './common/eventHub';
+import sr from 'sr-sdk-wxapp';
+
+
+{{#if_eq state "Vuex"}}
+import vuex from '@wepy/x';
+
+wepy.use(vuex);
+{{/if_eq}}
+{{#if_eq state "Redux"}}
+import wepyRedux from '@wepy/redux';
+
+wepy.use(wepyRedux);
+{{/if_eq}}
+
+
+/**
+   * 有数埋点SDK 默认配置
+   * 使用方法请参考文档 https://mp.zhls.qq.com/youshu-docs/develop/sdk/WePY.html
+   * 如对有数SDK埋点接入有任何疑问，请联系微信：sr_data_service
+   */
+sr.init({
+  /**
+   * 有数 - ka‘接入测试用’ 分配的 app_id，对应的业务接口人负责
+   */
+  token: 'bi6cdbda95ae2640ec',
+
+  /**
+   * 微信小程序appID，以wx开头
+   */
+  appid: 'touristappid',
+
+  /**
+   * 如果使用了小程序插件，需要设置为 true
+   */
+  usePlugin: false,
+
+  /**
+   * 开启打印调试信息， 默认 false
+   */
+  debug: true,
+
+  /**
+   * 建议开启-开启自动代理 Page， 默认 false
+   * sdk 负责上报页面的 browse 、leave、share 等事件
+   * 可以使用 sr.page 代替 Page(sr.page(options))
+   * 元素事件跟踪，需要配合 autoTrack: true
+   */
+  proxyPage: true,
+  /**
+   * 建议开启-开启组件自动代理， 默认 false
+   * sdk 负责上报页面的 browse 、leave、share 等事件
+   */
+  proxyComponent: true,
+  // 建议开启-是否开启页面分享链路自动跟踪
+  openSdkShareDepth: true,
+  // 建议开启-元素事件跟踪，自动上报元素事件，入tap、change、longpress、confirm
+  autoTrack: true,
+  installFrom: 'wepy@v2'
+});
+
+wepy.app({
+  hooks: {
+    // App 级别 hook，对整个 App 生效
+    // 同时存在 Page hook 和 App hook 时，优先执行 Page hook，返回值再交由 App hook 处
+    'before-setData': function (dirty) {
+      console.log('setData dirty: ', dirty);
+      return dirty;
+    }
+  },
+  globalData: {
+    userInfo: null
+  },
+
+  onLaunch() {
+    this.testAsync();
+    eventHub.$on('app-launch', (...args) => {
+      console.log('app-launch event emitted, the params are:');
+      console.log(args);
+    });
+  },
+
+  methods: {
+
+    sleep (s) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise resolved')
+        }, s * 1000)
+      })
+    },
+
+    async testAsync () {
+      let d = await this.sleep(3);
+      console.log(d);
+    }
+  }
+});
+</script>
+<config>
+{
+    pages: [
+      'pages/index'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
+    }
+}
+</config>

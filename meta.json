@@ -7,6 +7,10 @@
     {
       "name": "standard",
       "description": "模认模板，开启了promise、Async Function等"
+    },
+    {
+      "name": "standard-youshu",
+      "description": "腾讯有数模板，零开发接入腾讯有数无痕埋点能力"
     }
   ],
   "github": [

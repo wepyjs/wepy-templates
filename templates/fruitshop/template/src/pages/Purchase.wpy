@@ -1,0 +1,84 @@
+<style type="less">
+
+/* 编辑标题 */
+
+.title1 {
+
+    position: absolute;
+    font-size: 60rpx;
+    text-align:center;
+    font: bold;
+    font-family: Cursive ;
+    color:black
+
+  }
+
+  .content1 {
+    position: absolute;
+    top: 100rpx;
+    font-size: 60rpx;
+    text-align:center;
+    font-family: Serif ;
+    color:yellow
+
+  }
+
+  .content2 {
+    position: absolute;
+    font-size: 60rpx;
+    top: 200rpx;
+    font-weight:bold;
+    text-align:center;
+    font-family: Cursive ;
+    color:red
+
+  }
+
+</style>
+
+
+
+<template type="wxml">
+
+<view class="container">
+  <view class="title1">需要支付：</view>
+  <view class="content1">{{total}}元</view>
+  <view class="content2">支付成功！</view>
+</view> 
+</template>
+
+  
+
+<script>
+
+  import wepy from 'wepy'
+
+export default class Index extends wepy.page {
+
+    config = {};
+    components = {};
+    data = {
+      total:0
+    };
+
+    computed = {};
+    methods = {
+    };
+
+    events = {};
+
+
+    onLoad(query) {
+
+      console.log(query)
+
+      this.total = query.money
+
+    }
+    // Other properties
+
+}
+
+
+
+</script>

@@ -1,0 +1,357 @@
+<style >
+
+/* pages/fruitsList/FruitsList.wxss */
+
+  
+
+/* 列表 */
+
+.list {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 185rpx;
+
+    border-bottom: 1rpx solid #e9e9e9;
+
+  }
+
+
+
+/*列表图片*/
+
+.list_img {
+
+    position: absolute;
+
+    top: 20rpx;
+
+    left: 100rpx;
+
+    width: 144rpx;
+
+    height: 144rpx;
+
+  } 
+
+
+
+/* 列表名称 */
+
+.list_name {
+
+    position: absolute;
+
+    left: 280rpx;
+
+    top: 30rpx;
+
+    width: 300rpx; /* background-color: red; */
+
+    font-size: 30rpx;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+  } 
+
+  /* 列表剩余数量 */
+
+  .list_number{
+
+      position: absolute;
+
+      left: 280rpx;
+
+      top: 80rpx;
+
+      font-size: 30rpx;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: blue;
+
+  }
+
+  /* 列表价格 */
+
+  .list_price {
+
+    position: absolute;
+
+    font-size: 32rpx;
+
+    color: #d66058;
+
+    left: 280rpx;
+
+    bottom: 20rpx;
+
+  }
+
+
+
+/*数量加减*/
+
+.carts-num {
+
+    position: absolute;
+
+    right: 30rpx;
+
+    bottom: 23rpx; /* background-color: red; */
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: center;
+
+    height: 50rpx;
+
+  }
+
+
+
+  
+
+  .submit {
+
+    position: absolute;
+
+    width: 232rpx;
+
+    height: 104rpx;
+
+    line-height: 104rpx;
+
+    right: 0rpx;
+
+    bottom: 0rpx;
+
+    font-size: 44rpx;
+
+    text-align: center;
+
+    color: #fff;
+
+    background-color: #495a8f;
+
+  }
+
+
+
+
+
+   /* 合计金额 */
+
+.count_price {
+
+    position: absolute;
+
+    left: 280rpx;
+
+    bottom: 20rpx;
+
+    font-size: 40rpx;
+
+    left: 200rpx;
+
+    color:black;
+
+  }
+
+
+
+  .carts-num .buy_num {
+
+    margin: 10rpx;
+
+    border: 1rpx solid #ebebeb;
+
+    color: #000;
+
+    text-align: center;
+
+    height: 50rpx;
+
+    line-height: 50rpx;
+
+    width: 80rpx;
+
+  }
+
+
+
+</style>
+
+
+
+<template type="wxml" >
+
+<view> 
+
+  <view class="list" wx:for="{{ fruitList }}" wx:key="index">
+
+    <!-- 水果名称 -->
+
+    <text class="list_name">{{ item.name }}</text>
+
+    <!-- 水果图片 -->
+
+    <image class="list_img" src="{{ item.image }}"></image>
+
+    <!-- 剩余数量 -->
+
+    <text class="list_number">{{ item.number }}</text>
+
+    <!-- 水果价格 -->
+
+    <text class="list_price">￥{{ item.price }}</text>
+
+
+
+    <view>
+
+      <view class="carts-num">
+
+        <!--减按钮  -->
+
+        <button class="buy_num" disabled="{{item.buynbr == 0}}" @tap="decrease('{{index}}')">-</button>
+
+        <!-- 购买数量 -->
+
+        <label class="buy_num">{{ item.buynbr }}</label>
+
+        <!-- 加按钮-->
+
+        <button class="buy_num" disabled="{{item.number == 0}}" @tap="increase('{{index}}')">+</button>
+
+      </view>
+
+    </view>
+
+  </view>
+
+
+
+  <view>
+
+	<!-- 合计金额 -->
+
+	<lable class="count_price">合计：<text>￥{{ sum }}</text></lable>
+
+	<!-- 结算 -->
+
+	<label class="submit" @tap="goNext">结算</label>
+
+  </view>
+
+</view>
+
+</template>
+
+
+
+  
+
+<script>
+
+import wepy from 'wepy';
+
+
+
+export default class Index extends wepy.page {
+
+  config = {};
+
+  components = {};
+
+  data = {
+
+    fruitList: [
+
+      { name: "香蕉", number: 10, price: 1, buynbr: 0, image: '../image/banana.jpg' },
+
+      { name: "苹果", number: 10, price: 3, buynbr: 0, image: '../image/apple.jpg' },
+
+      { name: "橘子", number: 10, price: 2, buynbr: 0, image: '../image/orange.jpg' },
+
+      { name: "芒果", number: 10, price: 4, buynbr: 0, image: '../image/mango.jpg' },
+      
+      { name: "火龙果", number: 10, price: 5, buynbr: 0, image: '../image/dragonfruit.jpg'},
+      
+      { name: "梨子", number: 10, price: 2.5, buynbr: 0, image: '../image/pear.jpg' }
+
+    ],
+
+    sum: 0
+
+  };
+
+  computed = {};
+
+  methods = {
+
+
+
+    // 减少数量
+
+    decrease(Index) {
+
+     //console.log(Index);
+
+      this.fruitList[Index].buynbr--;
+
+      this.fruitList[Index].number++;
+
+      this.sum = this.sum - this.fruitList[Index].price;
+
+    },
+
+    // 增加数量
+
+    increase(Index) {
+
+      //console.log(Index);
+
+      this.fruitList[Index].buynbr++;
+
+      this.fruitList[Index].number--;
+
+      this.sum = this.sum + this.fruitList[Index].price;
+
+    },
+
+    goNext() {
+
+      wepy.navigateTo({
+
+        url: './Purchase?money='+this.sum
+
+      });
+
+    }
+
+   
+
+  };
+
+  events = {};
+
+  onLoad() {}
+
+  // Other properties
+
+}
+
+</script>

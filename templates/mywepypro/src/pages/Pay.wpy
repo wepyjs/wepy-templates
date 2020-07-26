@@ -1,0 +1,21 @@
+<style type="less">
+</style>
+
+<template type="wxml"> </template>
+  
+<script>
+import wepy from '@wepy/core';
+
+wepy.page ({
+    data : {
+      total:0
+    },
+   
+    onLoad(query) {
+      console.log(query)
+      this.total = query.money
+    }
+
+});
+
+</script>

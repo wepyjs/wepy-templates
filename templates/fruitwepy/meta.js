@@ -11,7 +11,7 @@ module.exports = {
     },
     "author": {
       "type": "string",
-      "message": "BubbleSci"
+      "message": "Author"
     },
   },
 }

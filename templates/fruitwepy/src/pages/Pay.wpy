@@ -1,0 +1,36 @@
+<style type="less">
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+</style>
+
+<template>
+  <text>您的需要付款</text>
+  <text>{{ sum }}元</text>
+</template>
+  
+<script>
+import wepy from '@wepy/core';
+
+wepy.page({
+  data: {
+    sum: 0
+  },
+  onLoad: function(query) {
+    console.log(query);
+      this.sum= query.total;
+  }
+});
+</script>
+<config>
+{
+  "usingComponents": {
+    
+  }
+}
+</config>

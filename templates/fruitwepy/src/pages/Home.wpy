@@ -1,0 +1,87 @@
+<style scoped>
+nav {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.btn {
+  width: 60%;
+  background: local;
+}
+.btn image {
+  width: 100%;
+}
+</style>
+
+
+<template>
+  <view class="btn">
+      <image src="../images/apple.jpg" mode="widthFix"></image>
+      <text>选择您所需要的数量：</text>
+        <input type="number" bindinput="bindKeyInput" data-type="1"/>
+   </view>
+
+  <view class="btn">
+      <image src="../images/banana.jpg" mode="widthFix"></image>
+      <text>选择您所需要的数量：</text>
+        <input type="number" bindinput="bindKeyInput" data-type="2"/>
+  </view>
+
+  <view class="btn">
+      <image src="../images/dragon.jpg" mode ="widthFix"></image>
+      <text>选择您所需要的数量：</text>
+        <input type="number" bindinput="bindKeyInput" data-type="3"/>
+  </view>
+  <button bindtap="getNum">总计</button>
+  <!-- <text>您所需要付款{{total}}</text> -->
+<button bindtap="tapLogin">确定</button>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+const app = getApp();
+var aprise, bprise, dprise, total;
+
+wepy.page({
+  data: {
+    inputValue: ''
+  },
+  methods: {
+  bindKeyInput: function(e) {
+     //console.log(e);
+      this.inputValue= e.$wx.detail.value
+  
+    switch (e.currentTarget.dataset.type) {
+      case '1':
+        aprise = e.$wx.detail.value * 2;
+        console.log(aprise);
+        break;
+      case '2':
+        bprise = e.$wx.detail.value * 5;
+        console.log(bprise);
+        break;
+      case '3':
+        dprise = e.$wx.detail.value * 10;
+        console.log(dprise);
+        break;
+    }
+  },
+  getNum: function() {
+    total = aprise + bprise + dprise;
+    console.log(total);
+  },
+
+  tapLogin: function() {
+    wx.navigateTo({
+      url: './Pay?total=' + total
+    });
+  }
+  }
+});
+</script>
+<config>
+{
+  "usingComponents": {}
+}
+</config>

@@ -1,0 +1,62 @@
+<style lang="less">
+</style>
+
+<template>
+  <div>
+    <shopCart :cartList="cartList" :totalPrice="totalPrice" :allSelectStatus="allSelectStatus"></shopCart>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+
+wepy.page({
+  config: {
+    navigationBarTitleText: '购物车'
+  },
+
+  data: {
+    cartList: [
+      {
+        title: 'Apple/苹果 iPhone 11',
+        image: '../images/PhoneListImg/iPhone 11.jpg',
+        specifications: '享24期免息，可免824.9元，每期229.1元（每日7.6元）',
+        price: 5499,
+        buynbr: 0,
+        selected: true
+      },
+      {
+        title: 'Apple/苹果 iPhone SE',
+        image: '../images/PhoneListImg/iPhone SE.jpg',
+        specifications: '享24期免息，可免247.4元，每期274.9元（每日9.2元）',
+        price: 3299,
+        buynbr: 0,
+        selected: true
+      },
+      {
+        title:
+          '【限时6期免息】Huawei/华为Mate30 5G 麒麟990徕卡5G手机mate30 5g手机智能手机华为手机华为官方旗舰店',
+        image: '../images/PhoneListImg/华为mate30 5G.jpg',
+        specifications: '6.62英寸 | 超长待机 | 上市:2019-11',
+        price: 4499,
+        buynbr: 0,
+        selected: true
+      }
+    ],
+    totalPrice: 0,
+    allSelectStatus: true // 全选ICON默认选中
+  },
+
+  computed: {},
+
+  methods: {}
+});
+</script>
+<config>
+{
+    navigationBarTitleText: '购物车',
+    usingComponents: {
+      shopCart: '../components/shopCart',
+    }
+}
+</config>

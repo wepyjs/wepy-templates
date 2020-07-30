@@ -1,0 +1,87 @@
+<style lang="less">
+/* 列表 */
+.list {
+  position: relative;
+  width: 100%;
+  height: 240rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+}
+
+.list_img {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.list_name {
+  position: absolute;
+  left: 280rpx;
+  right: 20rpx;
+  top: 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  display: -webkit-box; //将对象作为弹性伸缩盒子模型显示
+  -webkit-box-orient: vertical; //设置或检索伸缩盒对象的子元素的排列方式
+  -webkit-line-clamp: 2; //一个块元素显示的文本的行数
+  overflow: hidden; //溢出隐藏
+}
+
+.list_number {
+  position: absolute;
+  left: 280rpx;
+  top: 80rpx;
+  font-size: 35rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #858585;
+}
+/* 列表价格 */
+.list_price {
+  position: absolute;
+  font-size: 32rpx;
+  color: #d66058;
+  left: 280rpx;
+  bottom: 20rpx;
+}
+.list_spec {
+  position: absolute;
+  font-size: 30rpx;
+  color: #646363;
+  left: 280rpx;
+  bottom: 85rpx;
+}
+</style>
+
+<template>
+  <div>
+    <div class="list" v-for="(item, index) in productList" v-bind:key="index">
+      <div @tap="goViewDetail(item)">
+        <text class="list_name">{{ item.title }}</text>
+        <img class="list_img" src="{{ item.image }}" />
+        <text class="list_price">￥{{ item.price }}</text>
+        <text class="list_spec">{{item.specifications}}</text>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+
+wepy.component({
+  props: {
+    productList: {}
+  },
+  methods: {
+    goViewDetail(Item) {
+      let list = JSON.stringify(Item);
+      wx.navigateTo({
+        url: 'productDetail?product=' + list
+      });
+    }
+  }
+});
+</script>
+

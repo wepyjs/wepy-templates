@@ -1,0 +1,129 @@
+<style lang="less">
+.main {
+  width: 700rpx;
+  margin: 10px auto;
+}
+.main_left {
+  display: flex;
+  width: 50%;
+  height: 400rpx;
+  background: white;
+  float: left;
+  text-align: center;
+}
+.main_right {
+  display: flex;
+  width: 50%;
+  height: 400rpx;
+  background: white;
+  float: right;
+  text-align: center;
+}
+
+/*列表图片*/
+.list_img {
+  position: relative;
+  top: 50rpx;
+  left: 10rpx;
+  width: 250rpx;
+  height: 250rpx;
+}
+.list_text {
+  position: relative;
+  left: -180rpx;
+  top: 330rpx;
+  font-size: 35rpx;
+  overflow: visible;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>
+
+<template>
+  <div class="container">
+    <text class="title">商品分类</text>
+    <div class="main">
+      <div v-for="(item, index) in goodList" v-bind:key="index">
+        <div v-if="index < 3" class="main_left">
+          <img class="list_img" src="{{ item.image }}" @tap="goGoodList(index)" />
+          <div class="list_text">{{ item.title }}</div>
+        </div>
+
+        <div v-if="index >=3" class="main_right">
+          <img class="list_img" src="{{ item.image }}" @tap="goGoodList(index)" />
+          <div class="list_text">{{ item.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+import eventHub from '../common/eventHub';
+import { mapState } from '@wepy/x';
+
+wepy.page({
+  config: {
+    navigationBarTitleText: '分类'
+  },
+
+  data: {
+    goodList: [
+      {
+        image: '../images/PhoneIcon/HUAWEI.jpg',
+        title: '华为手机',
+        goPage: 'HUAWEIBrowse'
+      },
+      {
+        name: 'IPHONE',
+        image: '../images/PhoneIcon/IPHONE.jpg',
+        title: '苹果手机',
+        goPage: 'IPHONEBrowse'
+      },
+      {
+        name: 'MI',
+        image: '../images/PhoneIcon/MI.jpg',
+        title: '小米手机',
+        goPage: 'MIBrowse'
+      },
+      {
+        name: 'OPPO',
+        image: '../images/PhoneIcon/OPPO.jpg',
+        title: 'oppo手机',
+        goPage: 'OPPOBrowse'
+      },
+      {
+        name: 'VIVO',
+        image: '../images/PhoneIcon/VIVO.jpg',
+        title: 'vivo手机',
+        goPage: 'VIVOBrowse'
+      },
+      {
+        name: 'SAMSUNG',
+        image: '../images/PhoneIcon/SAMSUNG.jpg',
+        title: '三星手机',
+        goPage: 'SAMSUNGBrowse'
+      }
+    ]
+  },
+
+  computed: {},
+
+  methods: {
+    goGoodList(Index) {
+      this.$navigate({
+        url: 'listBrowse?Index=' + Index
+      });
+    }
+  }
+});
+</script>
+<config>
+{
+    navigationBarTitleText: '分类',
+    usingComponents: {
+  
+    }
+}
+</config>

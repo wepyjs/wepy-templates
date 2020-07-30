@@ -1,0 +1,105 @@
+<style lang="less">
+.success_pay {
+  position: absolute;
+  top: 100rpx;
+  left: 300rpx;
+  text-align: center;
+  color: #1a1a1a;
+}
+.pay_money {
+  position: absolute;
+  top: 200rpx;
+  left: 250rpx;
+  text-align: center;
+  color: #1a1a1a;
+}
+.money {
+  position: absolute;
+  top: 200rpx;
+  left: 450rpx;
+  text-align: center;
+  color: #ea4a3a;
+}
+.button_group {
+  position: absolute;
+  top: 300rpx;
+  left: 15%;
+  display: flex;
+  align-items: center;
+  padding-top: 100rpx;
+  .btn {
+    font-size: 30rpx;
+    padding: 22rpx 55rpx;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    -moz-border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    border-radius: 10rpx;
+  }
+  .order_detail {
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  .back_home {
+    background: #ed601b;
+    color: #fff;
+    margin-left: 85rpx;
+  }
+}
+</style>
+
+<template>
+  <div class="pay_success">
+    <div class="success_pay">支付成功!</div>
+    <div class="pay_money">支付金额</div>
+    <div class="money">{{totalPrice}}元</div>
+
+    <div class="button_group">
+      <div class="btn order_detail" @tap="orderView">查看订单</div>
+      <div class="btn back_home" @tap="goIndex">返回首页</div>
+    </div>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+
+wepy.page({
+  config: {
+    navigationBarTitleText: 'test'
+  },
+
+  data: {
+    totalPrice: 0,
+    orderList:[]
+  },
+
+  computed: {},
+
+  methods: {
+    goIndex() {
+      this.$switchTab({ url: 'home' });
+    },
+    orderView() {
+      let list = JSON.stringify(this.orderList);
+      this.$navigate({ url: 'orderView?orderList=' + list });
+    },
+  },
+
+  onLoad(query) {
+    this.totalPrice = query.totalPrice;
+    let list = JSON.parse(query.orderList);
+    for (let i = 0; i < list.length; i++) {
+        this.orderList.push(list[i]);
+      }
+  }
+  
+});
+</script>
+
+<config>
+{
+    navigationBarTitleText: '支付成功'
+}
+</config>

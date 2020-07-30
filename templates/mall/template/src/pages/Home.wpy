@@ -1,0 +1,269 @@
+<style lang="less">
+.slide_image {
+  width: 100%;
+  height: 660rpx;
+}
+.details_msg {
+  border-top: 1px solid #ededed;
+  padding: 30rpx 30rpx;
+  background: #fff;
+  .details_title {
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 35rpx;
+    color: #333;
+  }
+  .price {
+    color: #f73c3c;
+    font-size: 45rpx;
+    padding: 20rpx 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .baoyou {
+    color: #f73c3c;
+    font-size: 28rpx;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+  }
+}
+
+.order_select {
+  background: #fff;
+  height: 30rpx;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  padding: 40rpx 40rpx;
+  .doc {
+    display: inline-block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #808080;
+    font-size: 30rpx;
+    .doc_detail {
+      color: black;
+      margin-left: 40rpx;
+    }
+  }
+}
+
+.block {
+  padding: 27rpx 0rpx;
+  background: #fff;
+  .block_title {
+    color: #000;
+    height: 30rpx;
+    line-height: 30rpx;
+    border-left: 6px solid #f73c3c;
+    padding-left: 20rpx;
+  }
+  .block_content {
+    padding: 38rpx 22rpx;
+    .doc {
+      color: #808080;
+      font-size: 26rpx;
+      line-height: 30rpx;
+    }
+  }
+}
+
+.detail_bottom {
+  width: 100%;
+  border-top: 1px solid #ededed;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  z-index: 1001;
+  .bottom_box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .sy_bottom {
+    padding: 15rpx 40rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    text-align: center;
+    border-right: 1rpx solid #ededed;
+    background: #ff6e30;
+    color: #fff;
+  }
+  .item {
+    flex: 1;
+    text-align: center;
+    width: 40rpx;
+    border-right: 1px solid #efefef;
+    .doc {
+      font-size: 24rpx;
+    }
+  }
+}
+</style>
+
+<template>
+  <div>
+    <img class="slide_image" src="{{productDetail[0].image}}" />
+    <div class="details_msg">
+      <div class="details_title">{{productDetail[0].title}}</div>
+      <text class="price">￥{{productDetail[0].price}}</text>
+      <div class="baoyou">包邮</div>
+    </div>
+    <div class="order_select">
+      <div class="doc">
+        发货
+        <text class="doc_detail">北京 快递：免运费</text>
+      </div>
+    </div>
+    <div class="order_select">
+      <div class="doc">
+        保障
+        <text class="doc_detail">次日达 18：00前付款，预计明天送达 假一赔四 急速退款 七天无理由退换</text>
+      </div>
+    </div>
+    <div class="order_select">
+      <div class="doc">
+        选择
+        <text class="doc_detail">配送区域 网络类型 机身颜色 套餐类型 存储容量 购买方式 购买数量</text>
+      </div>
+    </div>
+    <div class="order_select">
+      <div class="doc">
+        参数
+        <text class="doc_detail">网络类型 品牌 手机型号 机身颜色 存储容量</text>
+      </div>
+    </div>
+    <div class="order_select"></div>
+
+    <div class="detail_bottom">
+      <div class="bottom_box">
+        <div class="item" @tap="goMyShop">
+          <div class="doc">店铺</div>
+        </div>
+        <div class="item" @tap="goCustomerService">
+          <div class="doc">客服</div>
+        </div>
+        <div class="item" @tap="takeCollection">
+          <div class="doc">收藏</div>
+        </div>
+        <div class="sy_bottom" @tap="takeCart">加入购物车</div>
+        <div class="sy_bottom" @tap="goBuyNow">立即购买</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+import eventHub from '../common/eventHub';
+import { mapState } from '@wepy/x';
+
+wepy.page({
+  config: {
+    navigationBarTitleText: '商品详情'
+  },
+
+  data: {
+    productDetail: [
+      {
+        title: 'Apple/苹果 iPhone 11',
+        image: '../images/PhoneListImg/iPhone 11.jpg',
+        specifications: '享24期免息，可免824.9元，每期229.1元（每日7.6元）',
+        price: 5499,
+        buynbr: 1,
+        selected: true
+      }
+    ],
+    isCollection: false,
+    takeCartList: [],
+    collectionList: []
+  },
+
+  computed: {},
+
+  methods: {
+    takeCollection() {
+      this.isCollection = !this.isCollection;
+      if (this.isCollection) {
+        this.collectionList.push(this.productDetail[0]);
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'success',
+          duration: 2000
+        });
+      } else {
+        let arr = this.collectionList;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].title == this.productDetail[0].title) {
+            arr.splice(i, 1);
+          }
+        }
+        wx.showToast({
+          title: '取消收藏',
+          icon: 'success',
+          duration: 2000
+        });
+      }
+    },
+    takeCart() {
+      //   const a = this.$parent.globalData.globalCartList;
+      //   console.console.log(a);
+      if (this.takeCartList.length == 0) {
+        let list = this.productDetail[0];
+        list.buynbr = 1;
+        list.selected = true;
+        this.takeCartList.push(this.productDetail[0]);
+        wx.showToast({
+          title: '添加购物车成功',
+          icon: 'success',
+          duration: 2000
+        });
+      } else {
+        let len = this.takeCartList.length;
+        for (let i = 0; i < len; i++) {
+          if (this.takeCartList[i] === this.productDetail[0]) {
+            this.takeCartList[i].buynbr++;
+            // console.log('添加失败');
+            wx.showToast({
+              title: '添加购物车成功',
+              icon: 'success',
+              duration: 2000
+            });
+          } else {
+            let list = this.productDetail[0];
+            list.buynbr = 1;
+            list.selected = true;
+            this.takeCartList.push(this.productDetail[0]);
+            // console.log(this.takeCartList);
+            // console.log('添加成功');
+            wx.showToast({
+              title: '添加购物车成功',
+              icon: 'success',
+              duration: 2000
+            });
+          }
+        }
+      }
+    },
+    goBuyNow() {
+      let list = JSON.stringify(this.productDetail[0]);
+      let totalPrice = this.productDetail[0].price;
+      this.$navigate({
+        url: 'conformOrder?totalPrice=' + totalPrice + '&cartList=' + list
+      });
+    }
+  }
+});
+</script>
+<config>
+{
+    navigationBarTitleText: '商品详情',
+    usingComponents: {
+    }
+}
+</config>

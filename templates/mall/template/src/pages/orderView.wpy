@@ -1,0 +1,203 @@
+<style lang="less">
+// 收货信息
+.address_block {
+  position: fixed;
+  padding: 30rpx;
+  background: #fff;
+  margin-top: 10rpx;
+  .title {
+    color: #858585;
+    padding-left: 24rpx;
+    font-size: 35rpx;
+  }
+  .content {
+    color: #858585;
+    padding-left: 24rpx;
+    font-size: 35rpx;
+  }
+}
+
+.order_info {
+  position: absolute;
+  width: 90%;
+  top: 200rpx;
+  bottom: 240rpx;
+  // 标题
+  .list_title {
+    position: fixed;
+    left: 50rpx;
+    top: 230rpx;
+    font-size: 35rpx;
+  }
+  /* 订单列表 */
+  .list {
+    position: relative;
+    width: 90%;
+    height: 500rpx;
+    border-bottom: 1rpx solid #e9e9e9;
+    top: 100rpx;
+
+    /*列表图片*/
+    .list_img {
+      position: absolute;
+      top: 20rpx;
+      left: 50rpx;
+      width: 144rpx;
+      height: 144rpx;
+    }
+    /* 列表名称 */
+    .list_name {
+      position: absolute;
+      left: 280rpx;
+      top: 30rpx;
+      width: 300rpx; /* background-color: red; */
+      font-size: 40rpx;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    /* 商品规格 */
+    .list_number {
+      position: absolute;
+      left: 280rpx;
+      top: 90rpx;
+      font-size: 30rpx;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #858585;
+    }
+    // 购买数量
+    .buy_num {
+      position: absolute;
+      right: 50rpx;
+      top: 80rpx;
+      color: #000;
+      text-align: center;
+      height: 50rpx;
+      line-height: 50rpx;
+      width: 60rpx;
+    }
+    /* 价格 */
+    .list_price {
+      position: absolute;
+      font-size: 32rpx;
+      color: black;
+      right: 50rpx;
+      top: 30rpx;
+    }
+    .return {
+      position: absolute;
+      font-size: 25rpx;
+      color: #ff6a3c;
+      left: 300rpx;
+      top: 150rpx;
+    }
+
+    .distribution {
+      position: absolute;
+      font-size: 30rpx;
+      color: black;
+      left: 80rpx;
+      bottom: 240rpx;
+    }
+    .distributionTip {
+      position: absolute;
+      font-size: 30rpx;
+      color: black;
+      right: 80rpx;
+      bottom: 240rpx;
+    }
+    .dliveryTime {
+      position: absolute;
+      font-size: 30rpx;
+      color: black;
+      left: 80rpx;
+      bottom: 170rpx;
+    }
+    .freightInsurance {
+      position: absolute;
+      font-size: 30rpx;
+      color: black;
+      left: 80rpx;
+      bottom: 100rpx;
+    }
+    .remarks {
+      position: absolute;
+      font-size: 30rpx;
+      color: black;
+      left: 80rpx;
+      bottom: 20rpx;
+    }
+    .remarksTip {
+      position: absolute;
+      font-size: 30rpx;
+      color: black;
+      left: 250rpx;
+      bottom: 20rpx;
+    }
+  }
+}
+</style>
+
+<template>
+  <div>
+    <div class="address_block">
+      <div class="title">收货人:{{userName}}</div>
+      <div class="content">收货地址：{{userAddress}}</div>
+    </div>
+    <div class="order_info">
+      <div class="list_title">订单详情></div>
+      <scroll-view class="scroll" scroll-top="180rpx">
+        <div class="list" v-for="(item, index) in orderList" v-bind:key="index">
+          <text class="list_name">{{ item.name }}</text>
+          <img class="list_img" src="{{ item.image }}" />
+          <text class="list_number">规格：{{ item.specifications }}</text>
+          <text class="list_price">￥{{ item.price }}</text>
+          <text class="buy_num">×{{ item.buynbr }}</text>
+          <text class="return">七天无理由退换</text>
+          <text class="distribution">配送方式：普通配送</text>
+          <text class="distributionTip">快递 免邮</text>
+          <text class="dliveryTime">配送时间：现在下单，预计3天后送达</text>
+          <text class="freightInsurance">运费险 卖家送</text>
+          <text class="remarks">订单备注</text>
+          <text class="remarksTip">选填，请先和商家协调一致</text>
+        </div>
+      </scroll-view>
+    </div>
+
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+
+wepy.page({
+  config: {
+    navigationBarTitleText: '确认订单'
+  },
+  data: {
+    orderList: [],
+    userName: '张三           158****3455',
+    userAddress: '中国广东省深圳市南山区深南大道10000号腾讯大厦',
+    totalPrice: 0
+  },
+  computed: {},
+  methods: {
+  },
+  onLoad(query) {
+    let list = JSON.parse(query.orderList);
+    for (let i = 0; i < list.length; i++) {
+        this.orderList.push(list[i]);
+    }
+    this.totalPrice = query.totalPrice;
+  }
+});
+</script>
+<config>
+{
+    navigationBarTitleText: '订单详情'
+}
+</config>
+

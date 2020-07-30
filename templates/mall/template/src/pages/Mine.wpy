@@ -1,0 +1,114 @@
+<style lang="less">
+.info_block {
+  margin-top: 50rpx;
+  width: 100%;
+  .item {
+    position: relative;
+    height: 60rpx;
+    border-top: 1rpx solid #dbdbdb;
+    border-bottom: 1rpx solid #dbdbdb;
+    background: #fff;
+    padding: 34rpx 28rpx;   
+  }
+  .item_img {
+    width: 50rpx;
+    height: 50rpx;
+  }
+  .item_content {
+    display: flex;
+    align-items: center;
+    color: #1a1a1a;
+    .text {
+      margin-left: 50rpx;
+    }
+  }
+}
+
+
+.header {
+  background: #ff6a3c;
+  height: 260rpx;
+  width: 100%;
+}
+
+.nickName {
+  position: absolute;
+  left: 350rpx;
+  top: 100rpx;
+  font-size: 50rpx;
+}
+
+.userinfo_avatar {
+  padding: 30rpx 30rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+}
+
+
+</style>
+
+<template>
+  <div class="container">
+    <div class="header">
+      <image class="userinfo_avatar" src="{{ userInfo.avatarUrl }}" background-size="cover" />
+      <div class="nickName cfff">{{userInfo.nickName}}</div>
+    </div>
+
+    <div class="info_block">
+      <navigator class="item" url="/pages/myOrder">
+        <div class="item_content">
+          <image class="item_img" src="../images/MineIcon/icon_order.png"/>
+          <div class="text">全部订单</div>
+        </div>
+      </navigator>
+
+      <navigator class="item" url="/pages/myTrace">
+        <div class="item_content">
+          <image class="item_img" src="../images/MineIcon/icon_trace.png"/>
+          <div class="text">我的足迹</div>
+        </div>
+      </navigator>
+
+      <navigator class="item" url="/pages/myCollection">
+        <div class="item_content">
+          <image class="item_img" src="../images/MineIcon/icon_collection.png"/>
+          <div class="text">我的收藏</div>
+        </div>
+      </navigator>
+    </div>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+import eventHub from '../common/eventHub';
+import { mapState } from '@wepy/x';
+
+wepy.page({
+  
+  config: {
+    navigationBarTitleText: 'test'
+  },
+  data: {
+    userInfo: {
+      nickName: '加载中...'
+    }
+  },
+  computed: {},
+  methods: {},
+  created() {
+    let self = this;
+    wx.getUserInfo({
+      success(res) {
+        self.userInfo = res.userInfo;
+      }
+    });
+  }
+});
+</script>
+<config>
+{
+    navigationBarTitleText: '我的'
+}
+</config>

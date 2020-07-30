@@ -1,0 +1,44 @@
+<style lang="less">
+</style>
+
+<template>
+  <div>
+    <viewDetail
+      :productDetail.sync="product"
+      :isCollection.sync="isCollection"
+      :takeCartList.sync="cartList"
+      :collectionList.sync="collectList"
+    ></viewDetail>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core';
+
+wepy.page({
+  config: {
+    navigationBarTitleText: '分类'
+  },
+
+  data: {
+    product: {},
+    isCollection: false,
+    cartList: [],
+    collectList: []
+  },
+  methods: {},
+  onLoad(query) {
+    let list = JSON.parse(query.product);
+    this.product = list;
+    // console.log(this.product);
+  }
+});
+</script>
+<config>
+{
+    navigationBarTitleText: '商品详情',
+    usingComponents: {
+      viewDetail: '../components/viewDetail',
+    }
+}
+</config>

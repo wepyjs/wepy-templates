@@ -1,7 +1,0 @@
-<!--pages/Pay.wxml-->
-
-<view class="container">
-  <view class="title1">需要支付：</view>
-  <view class="content1">{{total}}元</view>
-  <view class="content2">支付成功！</view>
-</view> 

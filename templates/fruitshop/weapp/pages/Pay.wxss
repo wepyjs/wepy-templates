@@ -1,0 +1,28 @@
+/* pages/Pay.wxss */
+.title1 {
+  position: absolute;
+  font-size: 60rpx;
+  text-align:center;
+  font: bold;
+  font-family: Cursive ;
+  color:black
+}
+
+.content1 {
+  position: absolute;
+  top: 100rpx;
+  font-size: 60rpx;
+  text-align:center;
+  font-family: Serif ;
+  color:blue
+}
+
+.content2 {
+  position: absolute;
+  font-size: 60rpx;
+  top: 200rpx;
+  font-weight:bold;
+  text-align:center;
+  font-family: Cursive ;
+  color:red
+}

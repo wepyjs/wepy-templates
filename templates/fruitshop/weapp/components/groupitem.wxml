@@ -1,0 +1,5 @@
+
+<view class="groupitem">
+  --<label class="id">{{gitem.childid}}.</label>
+  <label data-wpy-evt="11-0" bind:tap="__dispatcher" class="name"> {{gitem.childname}}</label>
+</view>

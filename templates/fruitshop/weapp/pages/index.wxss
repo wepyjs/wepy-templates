@@ -1,0 +1,43 @@
+input {
+  border: 1rpx solid #ccc;
+  display: inline-block;
+  width: 200rpx;
+  border-radius: 5rpx;
+}
+.info {
+  padding-right: 10rpx;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+.slide {
+  width: 640rpx;
+  display: flex;
+  border: 1rpx solid #ccc;
+  font-size: 28rpx;
+  align-items: center;
+  box-sizing: border-box;
+}
+.slide .left {
+  width: 750rpx;
+  padding: 20rpx;
+}
+.slide .right {
+  display: flex;
+}
+.slide .right .right-item {
+  padding: 20rpx 30rpx;
+  background-color: red;
+  color: #fff;
+}
+

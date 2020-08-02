@@ -1,0 +1,57 @@
+<!--pages/Fruit.wxml-->
+
+<view> 
+
+  <view class="list" wx:for="{{ FruitList }}" wx:key="Index">
+  
+
+    <!-- 水果名称 -->
+
+    <text class="list_name">{{ item.name }}</text>
+
+    <!-- 水果图片 -->
+
+    <image class="list_img" src="{{ item.image }}"></image>
+
+    <!-- 剩余数量 -->
+
+    <text class="list_number">{{ item.number }}</text>
+
+    <!-- 水果价格 -->
+
+    <text class="list_price">￥{{ item.price }}</text>
+
+    <view>
+
+      <view class="carts-num">
+      
+
+        <!--减按钮  -->
+        <button class="buy_num" disabled="{{item.buy_num == 0}}" bindtap="decrease"data-index="{{index}}">-</button>
+
+        <!-- 购买数量 -->
+        <label class="buy_num">{{ item.buy_num }}</label>
+
+        <!-- 加按钮-->
+        <button class="buy_num" disabled="{{item.number == 0}}" bindtap="increase" data-index="{{index}}">+</button>
+      
+      </view>
+    </view>
+
+  </view>
+
+
+
+  <view>
+
+	<!-- 合计金额 -->
+
+	<lable class="count_price">合计：<text>￥{{ sum }}</text></lable>
+
+	<!-- 结算 -->
+
+	<label class="submit" bind:tap="goNext">结算</label>
+
+  </view>
+
+</view>

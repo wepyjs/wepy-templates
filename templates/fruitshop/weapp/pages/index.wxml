@@ -1,0 +1,97 @@
+<!----------   wxs start ----------->
+<wxs module="m1">
+"use strict";
+
+var getTime = function getTime(time) {
+  var date = getDate(time);
+  var hour = date.getHours();
+  var mins = date.getMinutes();
+  var sec = date.getSeconds();
+  var milli = date.getMilliseconds();
+  return "".concat(hour, ":").concat(mins, ":").concat(sec, ".").concat(milli);
+};
+
+module.exports.getTime = getTime;
+</wxs>
+<!----------   wxs end   ----------->
+
+<view class="container">
+  <view data-wpy-evt="4-0" bind:tap="__dispatcher" class="userinfo">
+    <image src="{{ userInfo.avatarUrl }}" background-size="cover" class="userinfo-avatar"></image>
+    <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+  </view>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">测试数据绑定</view>
+
+    <text data-wpy-evt="4-1" bind:tap="__dispatcher" class="info">{{m1.getTime(currentTime)}}</text>
+    <text class="info">{{setTimeoutTitle}}</text>
+    <text data-wpy-evt="4-2" bind:tap="__dispatcher" class="info">{{mixin}}</text>
+    <text class="info">{{testcomputed}}</text>
+  </panel>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">其它测试</view>
+    
+    <button size="mini" data-wpy-evt="4-3" bind:tap="__dispatcher">组件通信</button>
+    <button size="mini" data-wpy-evt="4-4" bind:tap="__dispatcher">混合TAP事件</button>
+  </panel>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">测试并发网络请求</view>
+    <view>返回结果: <text>{{netrst}}</text></view>
+    <button size="mini" data-wpy-evt="4-5" bind:tap="__dispatcher"> 点我发起10个请求 </button>
+  </panel>
+
+   <panel bind_init="__initComponent">
+     <view slot="title" class="title">测试 v-model</view>
+     <view style="display: flex; align-items: center;">
+       <input value="{{ inputmodel }}" bindinput="__dispatcher" data-model-id="0" />
+       <text style="margin-left: 30rpx;">Value: {{inputmodel}}</text>
+     </view>
+   </panel>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">测试组件</view>
+
+    <text class="testcounter">全局计数器：</text>
+    <view class="counterview">
+      <button size="mini" data-wpy-evt="4-6" bind:tap="__dispatcher">全局计数器: {{mynum}}</button>
+    </view>
+
+    <text class="testcounter">计数组件1 - num: </text>
+    <view class="counterview">
+
+      <counter bind_init="__initComponent" data-wpy-evt="4-7" bind:index-emit="__dispatcher"></counter>
+    </view>
+
+    <text class="testcounter">计数组件2 - num.sync: </text>
+
+    <view class="counterview">
+      <counter bind_init="__initComponent" num="{{ mynum }}"></counter>
+    </view>
+  </panel>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">测试组件Repeat</view>
+    <view wx:for="{{ groupList }}" wx:for-index="index" wx:for-item="item" wx:key="index">
+      <group bind_init="__initComponent" grouplist="{{ item }}" index="{{ index }}"></group>
+    </view>
+  </panel>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">测试列表</view>
+    <list bind_init="__initComponent"></list>
+  </panel>
+
+  <panel bind_init="__initComponent">
+    <view slot="title" class="title">测试引用第三方原生组件</view>
+    <slide-view bind_init="__initComponent" width="640" height="80" slideWidth="266" class="slide">
+      <view slot="left" class="left">这是一个原生组件，右滑试试看。</view>
+      <view slot="right" class="right">
+        <view class="right-item">删除</view>
+      </view>
+    </slide-view>
+   </panel>
+  
+</view>
